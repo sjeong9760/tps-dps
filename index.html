@@ -53,7 +53,6 @@
         }
 
         p.intro {
-            font-size: 1.2em;
             margin-left: 20%;
             margin-right: 20%;
             margin-bottom: 30px;
@@ -119,13 +118,12 @@
     <h2>TL;DR</h2>
     <p class="intro">
     <ul>
-        <li>We propose TPS-DPS, a novel approach for sampling transition pathways without the need for collective
-            variables (CVs).</li>
-        <li>Our method minimizes the log-variance divergence between the path measure induced by TPSDPS and the target
-            path measure.</li>
+        <li>We propose <strong>TPS-DPS</strong>, sampling transition pathways without the need for collective variables
+            (CVs).</li>
+        <li>TPS-DPS minimize the <strong>log-variance divergence</strong> between the path measure induced by the model
+            and the target path measure.</li>
         <li>We introduce a new off-policy training objective based on learned control variates and replay buffers.</li>
-        <li>We evaluate TPS-DPS on a synthetic double-well potential and three peptides: Alanine Dipeptide, Polyproline
-            Helix, and Chignolin.</li>
+        <li>We introduce a new scale-based equivariant parameterization for bias force.</li>
     </ul>
     <h2>Abstract</h2>
     <p class="intro">
@@ -144,6 +142,14 @@
     </p>
     <br>
     <h2>Transition path sampled from TPS-DPS</h2>
+    <ul>
+        <li>We evaluate TPS-DPS on the synthetic double-well potential and three real-world molecular systems: Alanine
+            Dipeptide, Polyproline Helix, and Chignolin.</li>
+        <li>For the Double-well system, we plot the potential energy landscape modified by the neural bias potential.
+        </li>
+        <li>For real-world molecular systems, we plot the initial and target state, and the transition state sampled
+            from TPS-DPS in video.</li>
+    </ul>
     <br>
     <div class="flex-container">
         <h3>Double-well<br>system</h3>
@@ -225,6 +231,11 @@
     </div>
     <br>
     <h2>Comparsions with baselines</h2>
+    <ul>
+        <li>We compared TPS-DPS with both non-ML and ML baselines.</li>
+        <li>For non-ML baselines, we consider steered MD (SMD) with force constant.</li>
+        <li>For ML baselines, we consider Path Integral SOC for Path Sampling (PIPS).</li>
+    </ul>
     <br>
     <div class="flex-container">
         <h3>Double-well<br>system</h3>
