@@ -1,3 +1,6 @@
+# Notice: we refer to https://github.com/LarsHoldijk/SOCTransitionPaths/blob/master/potentials/alanine_md.py
+# for applying neural network bias force to OpenMM
+
 import os
 import openmm as mm
 from openmm import app
