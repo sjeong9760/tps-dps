@@ -25,7 +25,6 @@ parser.add_argument("--sigma", default=0.1, type=float)
 parser.add_argument("--num_samples", default=64, type=int)
 parser.add_argument("--temperature", default=300, type=float)
 parser.add_argument("--friction", default=0.001, type=float)
-parser.add_argument("--various", action="store_true")
 
 
 args = parser.parse_args()

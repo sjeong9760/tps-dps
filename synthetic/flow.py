@@ -135,7 +135,6 @@ class Reward:
     def __init__(self, args, mds):
         self.sigma = args.sigma
         self.log_prob = mds.log_prob
-        self.various = args.various
         self.timestep = args.timestep
         self.target_position = mds.target_position
 
@@ -156,20 +155,15 @@ class Reward:
         return log_running_reward
 
     def target_reward(self, positions, target_position):
-        if self.various:
-            log_target_reward, final_idx = (
-                self.rmsd(
-                    positions.view(-1, positions.size(-1)),
-                    target_position,
-                )
-                .view(positions.size(0), positions.size(1))
-                .max(1)
+        log_target_reward, final_idx = (
+            self.rmsd(
+                positions.view(-1, positions.size(-1)),
+                target_position,
             )
-            return log_target_reward, final_idx
-        else:
-            log_target_reward = self.rmsd(positions[:, -1], target_position)
-            final_idx = None
-            return log_target_reward, final_idx
+            .view(positions.size(0), positions.size(1))
+            .max(1)
+        )
+        return log_target_reward, final_idx
 
     def rmsd(self, positions, target_position):
         msd = (positions - target_position).square().mean(-1)

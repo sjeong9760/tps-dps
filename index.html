@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>    
+    <title>
         TPS-DPS
     </title>
     <style>
@@ -85,7 +86,7 @@
             margin: 5px 0;
         }
 
-        .img-item img{
+        .img-item img {
             max-width: 300px;
             max-height: 100%;
             object-fit: contain;
@@ -108,23 +109,38 @@
         }
     </style>
 </head>
+
 <body>
     <h1>
         Transition Path Sampling
         <br>
-        with Improved Off-Policy Training of Diffusion Samplers
+        with Improved Off-Policy Training of Diffusion Path Samplers
     </h1>
     <h2>TL;DR</h2>
     <p class="intro">
-        <ul>
-            <li>We propose TPS-DPS, a novel approach for sampling transition pathways without the need for collective variables (CVs).</li>
-            <li>Our method minimizes the log-variance divergence between the path measure induced by TPSDPS and the target path measure.</li>
-            <li>We introduce a new off-policy training objective based on learned control variates and replay buffers.</li>
-            <li>We evaluate TPS-DPS on a synthetic double-well potential and three peptides: Alanine Dipeptide, Polyproline Helix, and Chignolin.</li>
-        </ul>
+    <ul>
+        <li>We propose TPS-DPS, a novel approach for sampling transition pathways without the need for collective
+            variables (CVs).</li>
+        <li>Our method minimizes the log-variance divergence between the path measure induced by TPSDPS and the target
+            path measure.</li>
+        <li>We introduce a new off-policy training objective based on learned control variates and replay buffers.</li>
+        <li>We evaluate TPS-DPS on a synthetic double-well potential and three peptides: Alanine Dipeptide, Polyproline
+            Helix, and Chignolin.</li>
+    </ul>
     <h2>Abstract</h2>
     <p class="intro">
-        Understanding transition pathways between metastable states in molecular systems is crucial to advance material design and drug discovery. However, unbiased molecular dynamics simulations are computationally infeasible due to the high energy barriers separating these states. Although recent machine learning techniques offer potential solutions, they are often limited to simple systems or rely on collective variables (CVs) derived from costly domain expertise. In this paper, we introduce a novel approach that trains diffusion path samplers (DPS) to sample transition pathways without the need for CVs. We recast the problem as an amortized sampling of the target path measure, minimizing the log-variance divergence between the path measure induced by DPS and the target path measure. To ensure scalability to high-dimensional tasks, we introduce a new off-policy training objective based on learned control variates and replay buffers, and a scale-based parameterization of the bias forces. Our approach, termed TPS-DPS, is evaluated on a synthetic double-well potential and three proteins: Alanine Dipeptide, Polyproline Helix, and Chignolin. Results show that our approach produces more realistic and diverse transition pathways compared to existing CV-free methods.    
+        Understanding transition pathways between metastable states in molecular systems is crucial to advance material
+        design and drug discovery. However, unbiased molecular dynamics simulations are computationally infeasible due
+        to the high energy barriers separating these states. Although recent machine learning techniques offer potential
+        solutions, they are often limited to simple systems or rely on collective variables (CVs) derived from costly
+        domain expertise. In this paper, we introduce a novel approach that trains diffusion path samplers (DPS) to
+        sample transition pathways without the need for CVs. We recast the problem as an amortized sampling of the
+        target path measure, minimizing the log-variance divergence between the path measure induced by DPS and the
+        target path measure. To ensure scalability to high-dimensional tasks, we introduce a new off-policy training
+        objective based on learned control variates and replay buffers, and a scale-based parameterization of the bias
+        forces. Our approach, termed TPS-DPS, is evaluated on a synthetic double-well potential and three proteins:
+        Alanine Dipeptide, Polyproline Helix, and Chignolin. Results show that our approach produces more realistic and
+        diverse transition pathways compared to existing CV-free methods.
     </p>
     <br>
     <h2>Transition path sampled from TPS-DPS</h2>
@@ -133,11 +149,13 @@
         <h3>Double-well<br>system</h3>
         <div class="gif-container">
             <div class="gif-item">
-                <img src="figures/synthetic-md.gif" alt="Double-Well unbiased MD" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/synthetic-md.gif" alt="Double-Well unbiased MD"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Unbiased MD</p>
             </div>
             <div class="gif-item">
-                <img src="figures/synthetic-tps-dps.gif" alt="Double-Well TPS-DPS" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/synthetic-tps-dps.gif" alt="Double-Well TPS-DPS"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>TPS-DPS</p>
             </div>
         </div>
@@ -147,15 +165,18 @@
         <h3>Alanine<br>Dipeptide</h3>
         <div class="gif-container">
             <div class="gif-item">
-                <img src="figures/alanine-c5.png" alt="Alanine initial state" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/alanine-c5.png" alt="Alanine initial state"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Initial state (C5)</p>
             </div>
             <div class="gif-item">
-                <img src="figures/alanine.gif" alt="Alanine conformation change" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/alanine.gif" alt="Alanine conformation change"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Sampled transition (conformation change)</p>
             </div>
             <div class="gif-item">
-                <img src="figures/alanine-c7ax.png" alt="Alanine target state" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/alanine-c7ax.png" alt="Alanine target state"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Target state (C7ax)</p>
             </div>
         </div>
@@ -165,15 +186,18 @@
         <h3>Polyproline<br>Helix</h3>
         <div class="gif-container">
             <div class="gif-item">
-                <img src="figures/poly-pp2.png" alt="Poly start state" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/poly-pp2.png" alt="Poly start state"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Initial state (left-handed, PP-II)</p>
             </div>
             <div class="gif-item">
-                <img src="figures/poly.gif" alt="Poly isomerization" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/poly.gif" alt="Poly isomerization"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Sampled transition (isomerization)</p>
             </div>
             <div class="gif-item">
-                <img src="figures/poly-pp1.png" alt="Poly target state" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/poly-pp1.png" alt="Poly target state"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Target state (right-handed, PP-I)</p>
             </div>
         </div>
@@ -183,15 +207,18 @@
         <h3>Chignolin</h3>
         <div class="gif-container">
             <div class="gif-item">
-                <img src="figures/chignolin-unfolded.png" alt="Chignolin initial state" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/chignolin-unfolded.png" alt="Chignolin initial state"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Initial state (unfolded)</p>
             </div>
             <div class="gif-item">
-                <img src="figures/chignolin.gif" alt="Chignolin folding process" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/chignolin.gif" alt="Chignolin folding process"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Sampled transition (folding)</p>
             </div>
             <div class="gif-item">
-                <img src="figures/chignolin-folded.png" alt="Chignolin target state" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/chignolin-folded.png" alt="Chignolin target state"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Target state (folded)</p>
             </div>
         </div>
@@ -203,27 +230,33 @@
         <h3>Double-well<br>system</h3>
         <div class="gif-container">
             <div class="img-item">
-                <img src="figures/synthetic-potential-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/synthetic-potential-md.png" alt="Unbiased MD"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>Unbiased MD</p>
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-smd0.5.png" alt="SMD (0.5)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/synthetic-potential-smd0.5.png" alt="SMD (0.5)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (0.5)</p>
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-smd1.png" alt="SMD (1)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/synthetic-potential-smd1.png" alt="SMD (1)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (1)</p>
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-tps-dps-f.png" alt="TPS-DPS (F)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/synthetic-potential-tps-dps-f.png" alt="TPS-DPS (F)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (F)</p>
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-tps-dps-p.png" alt="TPS-DPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/synthetic-potential-tps-dps-p.png" alt="TPS-DPS (P)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (P)</p>
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-gt.png" alt="Ground Truth" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/synthetic-potential-gt.png" alt="Ground Truth"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>Ground Truth</p>
             </div>
         </div>
@@ -233,27 +266,33 @@
         <h3>Alanine<br>Dipeptide</h3>
         <div class="gif-container">
             <div class="img-item">
-                <img src="figures/alanine-ram-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/alanine-ram-md.png" alt="Unbiased MD"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>Unbiased MD</p>
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-smd10.png" alt="SMD (10)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/alanine-ram-smd10.png" alt="SMD (10)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (10)</p>
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-smd20.png" alt="SMD (20)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/alanine-ram-smd20.png" alt="SMD (20)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (20)</p>
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-pips.png" alt="PIPS (F)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/alanine-ram-pips.png" alt="PIPS (F)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>PIPS (F)</p>
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-tps-dps-f.png" alt="TPS-DPS (F)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/alanine-ram-tps-dps-f.png" alt="TPS-DPS (F)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (F)</p>
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-tps-dps-p.png" alt="TPS-DPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/alanine-ram-tps-dps-p.png" alt="TPS-DPS (P)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (P)</p>
             </div>
         </div>
@@ -263,30 +302,37 @@
         <h3>Chignolin</h3>
         <div class="gif-container">
             <div class="img-item">
-                <img src="figures/chignolin-tica-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/chignolin-tica-md.png" alt="Unbiased MD"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>Unbiased MD</p>
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-smd-10.png" alt="SMD (10K)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/chignolin-tica-smd-10.png" alt="SMD (10K)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (10K)</p>
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-smd-20.png" alt="SMD (20K)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/chignolin-tica-smd-20.png" alt="SMD (20K)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (20K)</p>
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-pips.png" alt="PIPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/chignolin-tica-pips.png" alt="PIPS (P)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>PIPS (P)</p>
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-tps-dps-p.png" alt="TPS-DPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/chignolin-tica-tps-dps-p.png" alt="TPS-DPS (P)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (P)</p>
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-tps-dps-s.png" alt="TPS-DPS (S)" style="display: block; margin: 0 auto; max-width: 160px;">
+                <img src="figures/chignolin-tica-tps-dps-s.png" alt="TPS-DPS (S)"
+                    style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (S)</p>
             </div>
         </div>
     </div>
 </body>
+
 </html>

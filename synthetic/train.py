@@ -19,8 +19,7 @@ parser.add_argument("--save_dir", default="results/synthetic", type=str)
 parser.add_argument("--bias", default="pot", type=str)
 
 # Sampling Config
-parser.add_argument("--sigma", default=4, type=float)
-parser.add_argument("--various", action="store_true")
+parser.add_argument("--sigma", default=3, type=float)
 parser.add_argument("--num_steps", default=1000, type=int)
 parser.add_argument("--timestep", default=0.01, type=float)
 parser.add_argument("--num_samples", default=512, type=int)

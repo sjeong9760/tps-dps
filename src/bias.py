@@ -15,10 +15,10 @@ class ExternalForce(nn.Module):
             self.output_dim = mds.num_particles * 3
         elif self.bias == "pot":
             self.output_dim = 1
-        elif self.bias == "atom_scale":
+        elif self.bias == "scale":
             self.output_dim = mds.num_particles
 
-        self.input_dim = mds.num_particles * 4
+        self.input_dim = mds.num_particles * (3 + 1)
 
         if args.molecule == "alanine":
             self.mlp = nn.Sequential(
@@ -83,7 +83,7 @@ class ExternalForce(nn.Module):
             force = torch.matmul(force, R)
         elif self.bias == "pot":
             force = -torch.autograd.grad(out.sum(), pos, create_graph=True)[0]
-        elif self.bias == "atom_scale":
+        elif self.bias == "scale":
             target = torch.matmul(target - t, R)
             scale = softplus(out.view(*pos.shape[:-2], self.output_dim, 1))
             force = scale * (target - pos)

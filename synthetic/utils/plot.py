@@ -14,7 +14,7 @@ class Plot:
 
     def __call__(self):
         positions = []
-        for i in range(64):
+        for i in range(self.num_samples):
             position = np.load(f"{self.save_dir}/positions/{i}.npy")
             position = torch.from_numpy(position).to(self.device)
             positions.append(position)
@@ -44,7 +44,7 @@ class Plot:
             color=[cm(1.0 * i / len(positions)) for i in range(len(positions))]
         )
 
-        for position in positions[:64]:
+        for position in positions:
             xs = position[:, 0].detach().cpu().numpy()
             ys = position[:, 1].detach().cpu().numpy()
             ax.plot(

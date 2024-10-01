@@ -13,21 +13,21 @@ class ExternalForce(nn.Module):
         elif self.bias in ["pot", "scale"]:
             self.output_dim = 1
 
-        self.input_dim = 3
+        self.input_dim = 2 + 1
 
         self.mlp = nn.Sequential(
             nn.Linear(self.input_dim, 8),
             nn.ReLU(),
             nn.Linear(8, 4),
             nn.ReLU(),
-            nn.Linear(4, self.output_dim),
+            nn.Linear(4, self.output_dim, bias=False),
         )
 
         self.log_z = nn.Parameter(torch.tensor(0.0))
 
         self.to(args.device)
 
-    def forward(self, pos, target, plot=False):
+    def forward(self, pos, target):
         if self.bias == "pot":
             pos.requires_grad = True
 
