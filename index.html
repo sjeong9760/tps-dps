@@ -90,16 +90,25 @@
             align-items: center;
         }
 
-        .compare-container {
-            display: flex;
-            justify-content: space-around;
-            width: 1300px;
-        }        
-
         h3 {
             margin-right: 20px;
         }
     </style>
+    <script>
+        document.getElementById('gif').addEventListener('click', function() {
+            var gif = this;
+            var currentSrc = gif.src;
+            var gifSrc = gif.getAttribute('data-gif');
+            var staticSrc = gif.getAttribute('data-static');
+            
+            // Toggle between gif and static image
+            if (currentSrc === gifSrc) {
+                gif.src = staticSrc;
+            } else {
+                gif.src = gifSrc;
+            }
+        });
+    </script>
 </head>
 <body>
     <h1>
@@ -123,7 +132,7 @@
     <h2>Sampled transition path of TPS-DPS</h2>
     <br>
     <div class="flex-container">
-        <h3>Double-Well system</h3>
+        <h3>Double-Well<br>system</h3>
         <div class="gif-container">
             <div class="gif-item">
                 <img src="figures/synthetic-md.gif" alt="Double-Well unbiased MD" style="display: block; margin: 0 auto; max-width: 400px;">
@@ -137,14 +146,21 @@
     </div>
     <br>
     <div class="flex-container">
-        <h3>Alanine Dipeptide</h3>
+        <h3>Alanine<br>Dipeptide</h3>
         <div class="gif-container">
             <div class="gif-item">
                 <img src="figures/alanine-c5.png" alt="Alanine initial state" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Initial state (c5)</p>
             </div>
-            <div class="gif-item">
+            <!-- <div class="gif-item">
                 <img src="figures/alanine.gif" alt="Alanine conformation change" style="display: block; margin: 0 auto; max-width: 400px;">
+                <p>Sampled transition (conformation change)</p>
+            </div> -->
+            <div class="gif-item">
+                <img id="gif" src="figures/alanine.gif" alt="Alanine conformation change" 
+                     style="display: block; margin: 0 auto; max-width: 400px; cursor: pointer;" 
+                     data-gif="figures/alanine.gif" 
+                     data-static="figures/alanine-c5.png">
                 <p>Sampled transition (conformation change)</p>
             </div>
             <div class="gif-item">
@@ -155,7 +171,7 @@
     </div>
     <br>
     <div class="flex-container">
-        <h3>Polyproline Helix</h3>
+        <h3>Polyproline<br>Helix</h3>
         <div class="gif-container">
             <div class="gif-item">
                 <img src="figures/poly-pp2.png" alt="Poly start state" style="display: block; margin: 0 auto; max-width: 400px;">
@@ -193,8 +209,8 @@
     <h2>Comparsions with baselines</h2>
     <br>
     <div class="flex-container">
-        <h3>Double-well system</h3>
-        <div class="compare-container">
+        <h3>Double-well<br>system</h3>
+        <div class="gif-container">
             <div class="gif-item">
                 <img src="figures/synthetic-potential-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 200px;">
                 <p>Unbiased MD</p>
@@ -223,8 +239,8 @@
     </div>
     <br>
     <div class="flex-container">
-        <h3>Alanine Dipeptide</h3>
-        <div class="compare-container">
+        <h3>Alanine<br>Dipeptide</h3>
+        <div class="gif-container">
             <div class="gif-item">
                 <img src="figures/alanine-ram-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 200px;">
                 <p>Unbiased MD</p>
@@ -254,7 +270,7 @@
     <br>
     <div class="flex-container">
         <h3>Chignolin</h3>
-        <div class="compare-container">
+        <div class="gif-container">
             <div class="gif-item">
                 <img src="figures/chignolin-tica-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 200px;">
                 <p>Unbiased MD</p>
