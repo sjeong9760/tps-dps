@@ -1,10 +1,8 @@
-# TPS-DPS: Transition Path Sampling with Improved Off-Policy Training of Diffusion Samplers
+Please refer to our [Project Page](https://anonymous.4open.science/w/tps-dps-0941/)
+
+# TPS-DPS: Transition Path Sampling with Improved Off-Policy Training of Diffusion Path Samplers
 
 This repository contains the code and instructions to reproduce the results of the paper.
-
-![Alanine](figures/alanine.gif)
-![Chignolin](figure/chignolin.gif)
-![Poly](figure/poly.gif)
 
 ## Installation
 
