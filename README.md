@@ -50,8 +50,8 @@ This repository contains the code and instructions to reproduce the results of t
     python src/eval.py --molecule chignolin --start_state unfolded --end_state folded --save_dir paths/chignolin/scale 
     ```
 
-- **Training**: Run the following command to start training:
+- **Training**: Run the following command to start training. For better results, try many seeds
     ```
-    python synthetic/train.py 
-    python src/train.py --molecule alanine
+    python synthetic/train.py --seed 2
+    python src/train.py --molecule alanine --seed 2
     ```

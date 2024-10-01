@@ -1,3 +1,9 @@
+# Notice: our loss function is equivalent to relative trajectory balance
+# [https://arxiv.org/abs/2405.20971] when discretized.
+# See appendix A.2 of our paper for the equivalence.
+# Our current implementation is based on the relative trajectories balance.
+# Another implementation without GFlowNet objective will be available.
+
 import torch
 import numpy as np
 from tqdm import tqdm
@@ -88,6 +94,8 @@ class FlowNetAgent:
                 (1, 2, 3)
             )
 
+            # our loss function is equivalent to relative trajectory balance
+            # See appendix A.2 of our paper for the equivalence.
             log_z = self.policy.log_z
             tb_loss = (log_z + log_forward - log_reward).square().mean()
             tb_loss.backward()
