@@ -164,10 +164,9 @@
           })
           .then(function (comp) {
             comp.setName("simulation-poly");
-            comp.addRepresentation('ball+stick', {type: "protein", aspectRatio:1.8, radius: 0.2})
-            <!-- comp.addRepresentation('ball+stick', {
-              aspectRatio: 1, radius: 0.5, selection: [6, 16, 18, 20, 30, 32, 34, 44], color: "#3FA796"
-            }) -->
+            comp.addRepresentation('ball+stick', {
+              type: "protein", aspectRatio:1.8, radius: 0.2
+            })
             comp.addTrajectory();
           });
 
@@ -214,11 +213,9 @@
           .then(function (comp) {
             comp.setName("simulation-chignolin");
             comp.addRepresentation('ball+stick', {aspectRatio: 1.0, radius:0.15})
-            chignolin_visual.addRepresentation(
-              "distance",
-              {
-                atom_pair:[37, 76], color: "#FEC220", background: "#FEC220",
-                linewidth:12.0, useCylinder:True, radius:0.3,
+            comp.addRepresentation("distance",{
+                atom_pair: [[37, 76]], color: "#FEC220", background: "#FEC220",
+                linewidth: 12.0, useCylinder: True, radius:0.3,
                 label_size:0
             })
             comp.addTrajectory();
