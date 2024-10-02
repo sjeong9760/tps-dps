@@ -176,10 +176,6 @@
         For the Double-well system, we plot the potential energy landscape
         modified by the neural bias potential.
       </li>
-      <li>
-        For real-world molecular systems, we plot the initial and target state,
-        and the transition state sampled from TPS-DPS in video.
-      </li>
     </ul>
     <br />
     <div class="flex-container">
@@ -203,7 +199,20 @@
         </div>
       </div>
     </div>
-    <br />
+    <br><br><br><br>
+    <ul>
+      <li>
+        For real-world molecular systems, we present the initial and target state,
+        and the transition state sampled from TPS-DPS in video.
+      </li>
+      <li>
+        Spin button: toggles the spin of the molecule.
+        Run/pause MD button: runs or pauses the molecular dynamics simulation.
+        Drag (left click): rotates the molecule.
+        Drag (right click): translates the molecule.
+        Scrol (up/down): zooms in/out the molecule.
+      </li>
+    </ul>
     <div class="flex-container">
       <h3>Alanine<br />Dipeptide</h3>
       <div class="gif-container">
@@ -231,7 +240,7 @@
         </div>
       </div>
     </div>
-    <br />
+    <br><br><br><br>
     <div class="flex-container">
       <h3>Polyproline<br />Helix</h3>
       <div class="gif-container">
@@ -252,14 +261,14 @@
         </div>
         <div class="gif-item">
           <div id="viewport-poly-target" style="width:360px; height:360px; margin:0 auto;"></div>
-          <p>Initial state (right-handed, PP-I)</p> 
+          <p>Target state (right-handed, PP-I)</p> 
           <div class="button-container">
             <button id="toggleSpin-poly-target">Spin on/off</button>
           </div>
         </div>
       </div>
     </div>
-    <br />
+    <br><br><br><br>
     <div class="flex-container">
       <h3>Chignolin</h3>
       <div class="gif-container">
@@ -280,7 +289,7 @@
         </div>
         <div class="gif-item">
           <div id="viewport-chignolin-target" style="width:360px; height:360px; margin:0 auto;"></div>
-          <p>Initial state (folded)</p> 
+          <p>Target state (folded)</p> 
           <div class="button-container">
             <button id="toggleSpin-chignolin-target">Spin on/off</button>
           </div>
