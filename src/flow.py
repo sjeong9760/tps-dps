@@ -1,3 +1,9 @@
+# Notice: our loss function is equivalent to relative trajectory balance
+# [https://arxiv.org/abs/2405.20971] when discretized.
+# See appendix A.2 of our paper for the equivalence.
+# Our current implementation is based on the relative trajectories balance.
+# Another implementation without GFlowNet objective will be available.
+
 import torch
 import numpy as np
 from tqdm import tqdm
@@ -88,6 +94,8 @@ class FlowNetAgent:
                 (1, 2, 3)
             )
 
+            # our loss function is equivalent to relative trajectory balance
+            # See appendix A.2 of our paper for the equivalence.
             log_z = self.policy.log_z
             tb_loss = (log_z + log_forward - log_reward).square().mean()
             tb_loss.backward()
@@ -116,7 +124,7 @@ class ReplayBuffer:
         self.log_reward = torch.zeros(args.buffer_size, device=args.device)
 
         self.idx = 0
-        args.device = args.device
+        self.device = args.device
         self.batch_size = args.batch_size
         self.num_samples = args.num_samples
         self.buffer_size = args.buffer_size
@@ -143,7 +151,6 @@ class ReplayBuffer:
 class Reward:
     def __init__(self, args, mds):
         self.sigma = args.sigma
-        self.various = args.various
         self.timestep = args.timestep
         self.friction = args.friction
         self.heavy_atoms = mds.heavy_atoms
@@ -174,21 +181,16 @@ class Reward:
     def target_reward(self, positions, target_position):
         positions = positions[:, :, self.heavy_atoms]
         target_position = target_position[:, self.heavy_atoms]
-        if self.various:
-            log_target_reward = torch.zeros(positions.size(0), device=positions.device)
-            final_idx = torch.zeros(
-                positions.size(0), device=positions.device, dtype=torch.long
-            )
-            for i in range(positions.size(0)):
-                log_target_reward[i], final_idx[i] = self.rmsd(
-                    positions[i],
-                    target_position,
-                ).max(0)
-            return log_target_reward, final_idx
-        else:
-            log_target_reward = self.rmsd(positions[:, -1], target_position)
-            final_idx = None
-            return log_target_reward, final_idx
+        log_target_reward = torch.zeros(positions.size(0), device=positions.device)
+        final_idx = torch.zeros(
+            positions.size(0), device=positions.device, dtype=torch.long
+        )
+        for i in range(positions.size(0)):
+            log_target_reward[i], final_idx[i] = self.rmsd(
+                positions[i],
+                target_position,
+            ).max(0)
+        return log_target_reward, final_idx
 
     def rmsd(self, positions, target_position):
         R, t = kabsch(positions, target_position)

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>    
+    <title>
         TPS-DPS
     </title>
     <link rel="stylesheet" type="text/css" href="page/style.css">
@@ -85,7 +86,7 @@
             margin: 5px 0;
         }
 
-        .img-item img{
+        .img-item img {
             max-width: 300px;
             max-height: 100%;
             object-fit: contain;
@@ -108,6 +109,7 @@
         }
     </style>
 </head>
+
 <body>
     <script src="./page/ngl.js"></script>
     <script>
@@ -149,36 +151,55 @@
     <h1>
         Transition Path Sampling
         <br>
-        with Improved Off-Policy Training of Diffusion Samplers
+        with Improved Off-Policy Training of Diffusion Path Samplers
     </h1>
     <h2>TL;DR</h2>
     <p class="intro">
-        <ul>
-            <li>We propose <strong>TPS-DPS</strong>, sampling transition pathways without the need for collective variables (CVs).</li>
-            <li>TPS-DPS minimize the <strong>log-variance divergence</strong> between the path measure induced by the model and the target path measure.</li>
-            <li>We introduce a new off-policy training objective based on learned control variates and replay buffers.</li>
-        </ul>
+    <ul>
+        <li>We propose <strong>TPS-DPS</strong>, sampling transition pathways without the need for collective variables
+            (CVs).</li>
+        <li>TPS-DPS minimize the <strong>log-variance divergence</strong> between the path measure induced by the model
+            and the target path measure.</li>
+        <li>We introduce a new off-policy training objective based on learned control variates and replay buffers.</li>
+        <li>We introduce a new scale-based equivariant parameterization for bias force.</li>
+    </ul>
     <h2>Abstract</h2>
     <p class="intro">
-        Understanding transition pathways between metastable states in molecular systems is crucial to advance material design and drug discovery. However, unbiased molecular dynamics simulations are computationally infeasible due to the high energy barriers separating these states. Although recent machine learning techniques offer potential solutions, they are often limited to simple systems or rely on collective variables (CVs) derived from costly domain expertise. In this paper, we introduce a novel approach that trains diffusion path samplers (DPS) to sample transition pathways without the need for CVs. We recast the problem as an amortized sampling of the target path measure, minimizing the log-variance divergence between the path measure induced by DPS and the target path measure. To ensure scalability to high-dimensional tasks, we introduce a new off-policy training objective based on learned control variates and replay buffers, and a scale-based parameterization of the bias forces. Our approach, termed TPS-DPS, is evaluated on a synthetic double-well potential and three proteins: Alanine Dipeptide, Polyproline Helix, and Chignolin. Results show that our approach produces more realistic and diverse transition pathways compared to existing CV-free methods.    
+        Understanding transition pathways between metastable states in molecular systems is crucial to advance material
+        design and drug discovery. However, unbiased molecular dynamics simulations are computationally infeasible due
+        to the high energy barriers separating these states. Although recent machine learning techniques offer potential
+        solutions, they are often limited to simple systems or rely on collective variables (CVs) derived from costly
+        domain expertise. In this paper, we introduce a novel approach that trains diffusion path samplers (DPS) to
+        sample transition pathways without the need for CVs. We recast the problem as an amortized sampling of the
+        target path measure, minimizing the log-variance divergence between the path measure induced by DPS and the
+        target path measure. To ensure scalability to high-dimensional tasks, we introduce a new off-policy training
+        objective based on learned control variates and replay buffers, and a scale-based parameterization of the bias
+        forces. Our approach, termed TPS-DPS, is evaluated on a synthetic double-well potential and three proteins:
+        Alanine Dipeptide, Polyproline Helix, and Chignolin. Results show that our approach produces more realistic and
+        diverse transition pathways compared to existing CV-free methods.
     </p>
     <br>
     <h2>Transition path sampled from TPS-DPS</h2>
     <ul>
-        <li>We evaluate TPS-DPS on the synthetic double-well potential and three real-world molecular systems: Alanine Dipeptide, Polyproline Helix, and Chignolin.</li>
-        <li>For the Double-well system, we plot the potential energy landscape modified by the neural bias potential.</li>
-        <li>For real-world molecular systems, we plot the initial and target state, and the transition state sampled from TPS-DPS in video.</li>
+        <li>We evaluate TPS-DPS on the synthetic double-well potential and three real-world molecular systems: Alanine
+            Dipeptide, Polyproline Helix, and Chignolin.</li>
+        <li>For the Double-well system, we plot the potential energy landscape modified by the neural bias potential.
+        </li>
+        <li>For real-world molecular systems, we plot the initial and target state, and the transition state sampled
+            from TPS-DPS in video.</li>
     </ul>
     <br>
     <div class="flex-container">
         <h3>Double-well<br>system</h3>
         <div class="gif-container">
             <div class="gif-item">
-                <img src="figures/synthetic-md.gif" alt="Double-Well unbiased MD" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/synthetic-md.gif" alt="Double-Well unbiased MD"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Unbiased MD</p>
             </div>
             <div class="gif-item">
-                <img src="figures/synthetic-tps-dps.gif" alt="Double-Well TPS-DPS" style="display: block; margin: 0 auto; max-width: 400px;">
+                <img src="figures/synthetic-tps-dps.gif" alt="Double-Well TPS-DPS"
+                    style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>TPS-DPS</p>
             </div>
         </div>
@@ -368,4 +389,5 @@
         });
       </script>
 </body>
+
 </html>

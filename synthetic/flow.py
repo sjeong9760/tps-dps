@@ -1,3 +1,10 @@
+# Notice: our loss function is equivalent to relative trajectory balance
+# [https://arxiv.org/abs/2405.20971] when discretized.
+# See appendix A.2 of our paper for the equivalence.
+# Our current implementation is based on GFlowNets.
+# Another implementation without GFlowNet objective will be available.
+
+
 import torch
 import numpy as np
 from tqdm import tqdm
@@ -78,9 +85,11 @@ class FlowNetAgent:
             positions, forces, log_reward = self.replay.sample()
             biases = self.policy(positions, mds.target_position)
             means = positions + (forces + biases) * args.timestep
-
-            log_z = self.policy.log_z
             log_forward = mds.log_prob(positions[:, 1:] - means[:, :-1]).mean((1, 2))
+
+            # our loss function is equivalent to relative trajectory balance
+            # See appendix A.2 of our paper for the equivalence.
+            log_z = self.policy.log_z
             tb_loss = (log_z + log_forward - log_reward).square().mean()
             tb_loss.backward()
 
@@ -135,7 +144,6 @@ class Reward:
     def __init__(self, args, mds):
         self.sigma = args.sigma
         self.log_prob = mds.log_prob
-        self.various = args.various
         self.timestep = args.timestep
         self.target_position = mds.target_position
 
@@ -156,20 +164,15 @@ class Reward:
         return log_running_reward
 
     def target_reward(self, positions, target_position):
-        if self.various:
-            log_target_reward, final_idx = (
-                self.rmsd(
-                    positions.view(-1, positions.size(-1)),
-                    target_position,
-                )
-                .view(positions.size(0), positions.size(1))
-                .max(1)
+        log_target_reward, final_idx = (
+            self.rmsd(
+                positions.view(-1, positions.size(-1)),
+                target_position,
             )
-            return log_target_reward, final_idx
-        else:
-            log_target_reward = self.rmsd(positions[:, -1], target_position)
-            final_idx = None
-            return log_target_reward, final_idx
+            .view(positions.size(0), positions.size(1))
+            .max(1)
+        )
+        return log_target_reward, final_idx
 
     def rmsd(self, positions, target_position):
         msd = (positions - target_position).square().mean(-1)
