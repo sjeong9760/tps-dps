@@ -62,12 +62,19 @@
         margin-bottom: 30px;
         width: 1300px;
       }
+      
+      .button-container {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+      }
 
       .gif-item {
         display: flex;
         flex-direction: column;
         align-items: center;
-        height: 250px;
+        height: 400px;
         justify-content: space-between;
       }
 
@@ -108,176 +115,9 @@
   </head>
   <body>
     <script src="./page/ngl.js"></script>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        stage_alanine = new NGL.Stage("viewport-alanine");
-        stage_alanine.setParameters({ backgroundColor: "white" });
-        stage_alanine
-          .loadFile("./page/data/alanine-path.gro", {
-            defaultRepresentation: true,
-            asTrajectory: true,
-          })
-          .then(function (comp) {
-            comp.setName("simulation-alanine");
-            comp.addTrajectory();
-          });
-
-        var toggleSpin_alanine = document.getElementById("toggleSpin-alanine");
-        var isSpinning_alanine = false;
-        toggleSpin_alanine.addEventListener("click", function () {
-          if (!isSpinning_alanine) {
-            stage_alanine.setSpin([0, 1, 0], 0.01);
-            isSpinning_alanine = true;
-          } else {
-            stage_alanine.setSpin(null, null);
-            isSpinning_alanine = false;
-          }
-        });
-
-        var toggleRunMDs_alanine = document.getElementById(
-          "toggleRunMDs-alanine"
-        );
-        var isRunning_alanine = false;
-        toggleRunMDs_alanine.addEventListener("click", function () {
-          var trajComp_alanine =
-            stage_alanine.getComponentsByName("simulation-alanine").list[0]
-              .trajList[0];
-          var player_alanine = new NGL.TrajectoryPlayer(
-            trajComp_alanine.trajectory,
-            { step: 40, mode: "once", interpolateType: "spline", timeout: 200 }
-          );
-          if (!isRunning_alanine) {
-            player_alanine.play();
-            isRunning_alanine = true;
-          } else {
-            player_alanine.play();
-            player_alanine.pause();
-            isRunning_alanine = false;
-          }
-        });
-
-
-        stage_poly = new NGL.Stage("viewport-poly");
-        stage_poly.setParameters({ backgroundColor: "white" });
-        stage_poly
-          .loadFile("./page/data/poly-path.gro", {
-            defaultRepresentation: true,
-            asTrajectory: true,
-          })
-          .then(function (comp) {
-            comp.setName("simulation-poly");
-            comp.addRepresentation("ball+stick", {
-              type: "protein",
-              aspectRatio: 1.8,
-              radius: 0.2,
-            });
-            comp.addRepresentation("ball+stick", {
-              type: "protein",
-              aspectRatio: 11,
-              radius: 0.5,
-              selection: [6, 16, 18, 20, 30, 32, 34, 44],
-              color: "#3FA796",
-            });
-            comp.addTrajectory();
-          });
-
-        var toggleSpin_poly = document.getElementById("toggleSpin-poly");
-        var isSpinning_poly = false;
-        toggleSpin_poly.addEventListener("click", function () {
-          if (!isSpinning_poly) {
-            stage_poly.setSpin([0, 1, 0], 0.01);
-            isSpinning_poly = true;
-          } else {
-            stage_poly.setSpin(null, null);
-            isSpinning_poly = false;
-          }
-        });
-
-        var toggleRunMDs_poly = document.getElementById("toggleRunMDs-poly");
-        var isRunning_poly = false;
-        toggleRunMDs_poly.addEventListener("click", function () {
-          var trajComp_poly =
-            stage_poly.getComponentsByName("simulation-poly").list[0]
-              .trajList[0];
-          var player_poly = new NGL.TrajectoryPlayer(trajComp_poly.trajectory, {
-            step: 60,
-            mode: "once",
-            interpolateType: "spline",
-            timeout: 200,
-          });
-          if (!isRunning_poly) {
-            player_poly.play();
-            isRunning_poly = true;
-          } else {
-            player_poly.play();
-            player_poly.pause();
-            isRunning_poly = false;
-          }
-        });
-
-
-        stage_chignolin = new NGL.Stage("viewport-chignolin");
-        stage_chignolin.setParameters({ backgroundColor: "white" });
-        stage_chignolin
-          .loadFile("./page/data/chignolin-path.gro", {
-            defaultRepresentation: true,
-            asTrajectory: true,
-          })
-          .then(function (comp) {
-            comp.setName("simulation-chignolin");
-            comp.addRepresentation("ball+stick", {
-              aspectRatio: 1.0,
-              radius: 0.15,
-            });
-            comp.addRepresentation("distance", {
-              atom_pair: [[37, 76]],
-              color: "#FEC220",
-              background: "#FEC220",
-              linewidth: 12.0,
-              useCylinder: TRUE,
-              radius: 0.3,
-              label_size: 0,
-            });
-            comp.addTrajectory();
-          });
-
-        var toggleSpin_chignolin = document.getElementById(
-          "toggleSpin-chignolin"
-        );
-        var isSpinning_chignolin = false;
-        toggleSpin_chignolin.addEventListener("click", function () {
-          if (!isSpinning_chignolin) {
-            stage_chignolin.setSpin([0, 1, 0], 0.01);
-            isSpinning_chignolin = true;
-          } else {
-            stage_chignolin.setSpin(null, null);
-            isSpinning_chignolin = false;
-          }
-        });
-
-        var toggleRunMDs_chignolin = document.getElementById(
-          "toggleRunMDs-chignolin"
-        );
-        var isRunning_chignolin = false;
-        toggleRunMDs_chignolin.addEventListener("click", function () {
-          var trajComp_chignolin = stage_chignolin.getComponentsByName(
-            "simulation-chignolin"
-          ).list[0].trajList[0];
-          var player_chignolin = new NGL.TrajectoryPlayer(
-            trajComp_chignolin.trajectory,
-            { step: 80, mode: "once", interpolateType: "spline", timeout: 200 }
-          );
-          if (!isRunning_chignolin) {
-            player_chignolin.play();
-            isRunning_chignolin = true;
-          } else {
-            player_chignolin.play();
-            player_chignolin.pause();
-            isRunning_chignolin = false;
-          }
-        });
-      });
-    </script>
+    <script src="./page/alanine.js"></script>
+    <script src="./page/poly.js"></script>
+    <script src="./page/chignolin.js"></script>
     <h1>
       Transition Path Sampling
       <br />
@@ -368,35 +208,26 @@
       <h3>Alanine<br />Dipeptide</h3>
       <div class="gif-container">
         <div class="gif-item">
-          <img
-            src="figures/alanine-c5.png"
-            alt="Alanine initial state"
-            style="display: block; margin: 0 auto; max-width: 400px"
-          />
-          <p>Initial state (C5)</p>
+          <div id="viewport-alanine-initial" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Initial state (C5)</p> 
+          <div class="button-container">
+            <button id="toggleSpin-alanine-inital">Spin on/off</button>
+          </div>
         </div>
         <div class="gif-item">
-          <div id="viewport-alanine" style="width:250px; height:250px; margin:0 auto;"></div>
+          <div id="viewport-alanine" style="width:360px; height:360px; margin:0 auto;"></div>
           <p>Sampled transition (conformation change)</p>
-          <div
-            style="
-              display: flex;
-              gap: 10px;
-              align-items: center;
-              justify-content: center;
-            "
-          >
+          <div class="button-container">
             <button id="toggleSpin-alanine">Spin on/off</button>
             <button id="toggleRunMDs-alanine">Run/pause MD</button>
           </div>
         </div>
         <div class="gif-item">
-          <img
-            src="figures/alanine-c7ax.png"
-            alt="Alanine target state"
-            style="display: block; margin: 0 auto; max-width: 400px"
-          />
+          <div id="viewport-alanine-target" style="width:360px; height:360px; margin:0 auto;"></div>
           <p>Target state (C7ax)</p>
+          <div class="button-container">
+            <button id="toggleSpin-alanine-target">Spin on/off</button>
+          </div>
         </div>
       </div>
     </div>
@@ -405,35 +236,26 @@
       <h3>Polyproline<br />Helix</h3>
       <div class="gif-container">
         <div class="gif-item">
-          <img
-            src="figures/poly-pp2.png"
-            alt="Poly start state"
-            style="display: block; margin: 0 auto; max-width: 400px"
-          />
-          <p>Initial state (left-handed, PP-II)</p>
+          <div id="viewport-poly-initial" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Initial state (left-handed, PP-II)</p> 
+          <div class="button-container">
+            <button id="toggleSpin-poly-inital">Spin on/off</button>
+          </div>
         </div>
         <div class="gif-item">
-          <div id="viewport-poly" style="width:250px; height:250px; margin:0 auto;"></div>
+          <div id="viewport-poly" style="width:360px; height:360px; margin:0 auto;"></div>
           <p>Sampled transition (isomerization)</p>
-          <div
-            style="
-              display: flex;
-              gap: 10px;
-              align-items: center;
-              justify-content: center;
-            "
-          >
+          <div class="button-container" >
             <button id="toggleSpin-poly">Spin on/off</button>
             <button id="toggleRunMDs-poly">Run/pause MD</button>
           </div>
         </div>
         <div class="gif-item">
-          <img
-            src="figures/poly-pp1.png"
-            alt="Poly target state"
-            style="display: block; margin: 0 auto; max-width: 400px"
-          />
-          <p>Target state (right-handed, PP-I)</p>
+          <div id="viewport-poly-target" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Initial state (right-handed, PP-I)</p> 
+          <div class="button-container">
+            <button id="toggleSpin-poly-target">Spin on/off</button>
+          </div>
         </div>
       </div>
     </div>
@@ -442,35 +264,26 @@
       <h3>Chignolin</h3>
       <div class="gif-container">
         <div class="gif-item">
-          <img
-            src="figures/chignolin-unfolded.png"
-            alt="Chignolin initial state"
-            style="display: block; margin: 0 auto; max-width: 400px"
-          />
-          <p>Initial state (unfolded)</p>
+          <div id="viewport-chignolin-initial" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Initial state (unfolded)</p> 
+          <div class="button-container">
+            <button id="toggleSpin-chignolin-inital">Spin on/off</button>
+          </div>
         </div>
         <div class="gif-item">
-          <div id="viewport-chignolin" style="width:250px; height:250px; margin:0 auto;"></div>
+          <div id="viewport-chignolin" style="width:360px; height:360px; margin:0 auto;"></div>
           <p>Sampled transition (folding)</p>
-          <div
-            style="
-              display: flex;
-              gap: 10px;
-              align-items: center;
-              justify-content: center;
-            "
-          >
+          <div class="button-container">
             <button id="toggleSpin-chignolin">Spin on/off</button>
             <button id="toggleRunMDs-chignolin">Run/pause MD</button>
           </div>
         </div>
         <div class="gif-item">
-          <img
-            src="figures/chignolin-folded.png"
-            alt="Chignolin target state"
-            style="display: block; margin: 0 auto; max-width: 400px"
-          />
-          <p>Target state (folded)</p>
+          <div id="viewport-chignolin-target" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Initial state (folded)</p> 
+          <div class="button-container">
+            <button id="toggleSpin-chignolin-target">Spin on/off</button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,8 +1,8 @@
-@font-face { 
+/* @font-face { 
   font-family: Droid Sans; 
     src: url('../fonts/DroidSans-webfont.eot'); 
     src: local("Droid Sans"), url('../fonts/DroidSans-webfont.woff'); 
-} 
+}  */
 
 html { 
   height: 100%;
