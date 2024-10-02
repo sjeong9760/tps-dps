@@ -1,8 +1,8 @@
 import os
 import torch
 import argparse
-from flow import FlowNetAgent
 from dynamics import Synthetic
+from dps import DiffusionPathSampler
 
 parser = argparse.ArgumentParser()
 
@@ -30,6 +30,6 @@ if __name__ == "__main__":
             os.makedirs(f"{args.save_dir}/{name}")
 
     mds = Synthetic(args)
-    agent = FlowNetAgent(args, mds)
+    agent = DiffusionPathSampler(args, mds)
     agent.policy.load_state_dict(torch.load(args.model_path))
     agent.sample(args, mds, mds.std)

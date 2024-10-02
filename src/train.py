@@ -1,11 +1,9 @@
 import os
-import time
-import wandb
 import torch
 import argparse
 from dynamics.mds import MDs
-from flow import FlowNetAgent
 from utils.logging import Log
+from dps import DiffusionPathSampler
 
 parser = argparse.ArgumentParser()
 
@@ -65,7 +63,7 @@ if __name__ == "__main__":
 
     mds = MDs(args)
     log = Log(args, mds)
-    agent = FlowNetAgent(args, mds)
+    agent = DiffusionPathSampler(args, mds)
 
     temperatures = torch.linspace(
         args.start_temperature, args.end_temperature, args.num_rollouts

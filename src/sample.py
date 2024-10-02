@@ -3,7 +3,7 @@ import torch
 import argparse
 
 from dynamics.mds import MDs
-from flow import FlowNetAgent
+from dps import DiffusionPathSampler
 
 parser = argparse.ArgumentParser()
 
@@ -36,6 +36,6 @@ if __name__ == "__main__":
             os.makedirs(f"{args.save_dir}/{name}")
 
     mds = MDs(args)
-    agent = FlowNetAgent(args, mds)
+    agent = DiffusionPathSampler(args, mds)
     agent.policy.load_state_dict(torch.load(args.model_path))
     agent.sample(args, mds, args.temperature)
