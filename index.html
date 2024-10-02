@@ -115,7 +115,7 @@
     <script>
         document.addEventListener( "DOMContentLoaded", function(){
         stage = new NGL.Stage("viewport-alanine");
-        stage.loadFile( "data/alanine-path.gro", { defaultRepresentation: true, asTrajectory: true } ).then( function( comp ){
+        stage.loadFile( "./page/data/alanine-path.gro", { defaultRepresentation: true, asTrajectory: true } ).then( function( comp ){
             comp.setName( "simulation-alanine" );
             comp.addTrajectory();
         });
