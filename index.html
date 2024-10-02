@@ -6,6 +6,7 @@
     <title>    
         TPS-DPS
     </title>
+    <link rel="stylesheet" type="text/css" href="page/style.css">
     <style>
         body {
             display: flex;
@@ -108,6 +109,43 @@
     </style>
 </head>
 <body>
+    <script src="./page/ngl.js"></script>
+    <script>
+        document.addEventListener( "DOMContentLoaded", function(){
+        stage = new NGL.Stage("viewport-alanine");
+        stage.loadFile( "data/alanine-path.gro", { defaultRepresentation: true, asTrajectory: true } ).then( function( comp ){
+            comp.setName( "simulation-alanine" );
+            comp.addTrajectory();
+        });
+
+        var toggleSpin = document.getElementById( "toggleSpin" );
+        var isSpinning = false;
+        toggleSpin.addEventListener( "click", function(){
+            if( !isSpinning ){
+                stage.setSpin( [ 0, 1, 0 ], 0.01 );
+                isSpinning = true;
+            }else{
+                stage.setSpin( null, null );
+                isSpinning = false;
+            }
+        } );
+        
+        var toggleRunMDs = document.getElementById( "toggleRunMDs" );
+        var isRunning = false;
+        toggleRunMDs.addEventListener( "click", function(){
+        var trajComp = stage.getComponentsByName("simulation-alanine").list[0].trajList[0];
+            var player = new NGL.TrajectoryPlayer(trajComp.trajectory, {step: 40, mode: "once", interpolateType:"spline", timeout: 200});
+            if( !isRunning ){
+            player.play();
+            isRunning = true;
+            }else{
+                player.play();
+            player.pause();
+            isRunning = false;
+            }
+        });
+        });
+    </script>
     <h1>
         Transition Path Sampling
         <br>
@@ -150,16 +188,23 @@
         <h3>Alanine<br>Dipeptide</h3>
         <div class="gif-container">
             <div class="gif-item">
-                <img src="figures/alanine-c5.png" alt="Alanine initial state" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Initial state (C5)</p>
+                <img src="figures/alanine-c5.png" alt="Alanine initial state" style="display: block; margin: 0 auto; max-width: 400px;">
             </div>
-            <div class="gif-item">
+            <!-- <div class="gif-item">
                 <img src="figures/alanine.gif" alt="Alanine conformation change" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Sampled transition (conformation change)</p>
-            </div>
+            </div> -->
+            <div class="gif-item" id="viewport-alanine" style="width:300px; height:300px;">
+                <p>Sampled transition (conformation change)</p>
+                <div style="display: flex; gap: 10px; align-items: center; justify-content: center;">
+                  <button id="toggleSpin">Spin on/off</button>
+                  <button id="toggleRunMDs">Run/pause MD</button>
+                </div>
+              </div>
             <div class="gif-item">
-                <img src="figures/alanine-c7ax.png" alt="Alanine target state" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Target state (C7ax)</p>
+                <img src="figures/alanine-c7ax.png" alt="Alanine target state" style="display: block; margin: 0 auto; max-width: 400px;">
             </div>
         </div>
     </div>
@@ -168,16 +213,16 @@
         <h3>Polyproline<br>Helix</h3>
         <div class="gif-container">
             <div class="gif-item">
-                <img src="figures/poly-pp2.png" alt="Poly start state" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Initial state (left-handed, PP-II)</p>
+                <img src="figures/poly-pp2.png" alt="Poly start state" style="display: block; margin: 0 auto; max-width: 400px;">
             </div>
             <div class="gif-item">
-                <img src="figures/poly.gif" alt="Poly isomerization" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Sampled transition (isomerization)</p>
+                <img src="figures/poly.gif" alt="Poly isomerization" style="display: block; margin: 0 auto; max-width: 400px;">
             </div>
             <div class="gif-item">
-                <img src="figures/poly-pp1.png" alt="Poly target state" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Target state (right-handed, PP-I)</p>
+                <img src="figures/poly-pp1.png" alt="Poly target state" style="display: block; margin: 0 auto; max-width: 400px;">
             </div>
         </div>
     </div>
@@ -186,16 +231,16 @@
         <h3>Chignolin</h3>
         <div class="gif-container">
             <div class="gif-item">
-                <img src="figures/chignolin-unfolded.png" alt="Chignolin initial state" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Initial state (unfolded)</p>
+                <img src="figures/chignolin-unfolded.png" alt="Chignolin initial state" style="display: block; margin: 0 auto; max-width: 400px;">
             </div>
             <div class="gif-item">
-                <img src="figures/chignolin.gif" alt="Chignolin folding process" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Sampled transition (folding)</p>
+                <img src="figures/chignolin.gif" alt="Chignolin folding process" style="display: block; margin: 0 auto; max-width: 400px;">
             </div>
             <div class="gif-item">
-                <img src="figures/chignolin-folded.png" alt="Chignolin target state" style="display: block; margin: 0 auto; max-width: 400px;">
                 <p>Target state (folded)</p>
+                <img src="figures/chignolin-folded.png" alt="Chignolin target state" style="display: block; margin: 0 auto; max-width: 400px;">
             </div>
         </div>
     </div>
@@ -211,28 +256,28 @@
         <h3>Double-well<br>system</h3>
         <div class="gif-container">
             <div class="img-item">
-                <img src="figures/synthetic-potential-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>Unbiased MD</p>
+                <img src="figures/synthetic-potential-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-smd0.5.png" alt="SMD (0.5)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (0.5)</p>
+                <img src="figures/synthetic-potential-smd0.5.png" alt="SMD (0.5)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-smd1.png" alt="SMD (1)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (1)</p>
+                <img src="figures/synthetic-potential-smd1.png" alt="SMD (1)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-tps-dps-f.png" alt="TPS-DPS (F)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (F)</p>
+                <img src="figures/synthetic-potential-tps-dps-f.png" alt="TPS-DPS (F)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-tps-dps-p.png" alt="TPS-DPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (P)</p>
+                <img src="figures/synthetic-potential-tps-dps-p.png" alt="TPS-DPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/synthetic-potential-gt.png" alt="Ground Truth" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>Ground Truth</p>
+                <img src="figures/synthetic-potential-gt.png" alt="Ground Truth" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
         </div>
     </div>
@@ -241,28 +286,28 @@
         <h3>Alanine<br>Dipeptide</h3>
         <div class="gif-container">
             <div class="img-item">
-                <img src="figures/alanine-ram-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>Unbiased MD</p>
+                <img src="figures/alanine-ram-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-smd10.png" alt="SMD (10)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (10)</p>
+                <img src="figures/alanine-ram-smd10.png" alt="SMD (10)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-smd20.png" alt="SMD (20)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (20)</p>
+                <img src="figures/alanine-ram-smd20.png" alt="SMD (20)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-pips.png" alt="PIPS (F)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>PIPS (F)</p>
+                <img src="figures/alanine-ram-pips.png" alt="PIPS (F)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-tps-dps-f.png" alt="TPS-DPS (F)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (F)</p>
+                <img src="figures/alanine-ram-tps-dps-f.png" alt="TPS-DPS (F)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/alanine-ram-tps-dps-p.png" alt="TPS-DPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (P)</p>
+                <img src="figures/alanine-ram-tps-dps-p.png" alt="TPS-DPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
         </div>
     </div>
@@ -271,30 +316,56 @@
         <h3>Chignolin</h3>
         <div class="gif-container">
             <div class="img-item">
-                <img src="figures/chignolin-tica-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>Unbiased MD</p>
+                <img src="figures/chignolin-tica-md.png" alt="Unbiased MD" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-smd-10.png" alt="SMD (10K)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (10K)</p>
+                <img src="figures/chignolin-tica-smd-10.png" alt="SMD (10K)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-smd-20.png" alt="SMD (20K)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>SMD (20K)</p>
+                <img src="figures/chignolin-tica-smd-20.png" alt="SMD (20K)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-pips.png" alt="PIPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>PIPS (P)</p>
+                <img src="figures/chignolin-tica-pips.png" alt="PIPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-tps-dps-p.png" alt="TPS-DPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (P)</p>
+                <img src="figures/chignolin-tica-tps-dps-p.png" alt="TPS-DPS (P)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
             <div class="img-item">
-                <img src="figures/chignolin-tica-tps-dps-s.png" alt="TPS-DPS (S)" style="display: block; margin: 0 auto; max-width: 160px;">
                 <p>TPS-DPS (S)</p>
+                <img src="figures/chignolin-tica-tps-dps-s.png" alt="TPS-DPS (S)" style="display: block; margin: 0 auto; max-width: 160px;">
             </div>
         </div>
     </div>
+    <script>
+        function waitForElm(selector) {
+          return new Promise(resolve => {
+              if (document.querySelector(selector)) {
+                  return resolve(document.querySelector(selector));
+              }
+      
+              const observer = new MutationObserver(mutations => {
+                  if (document.querySelector(selector)) {
+                      observer.disconnect();
+                      resolve(document.querySelector(selector));
+                  }
+              });
+              observer.observe(document.body, {
+                  childList: true,
+                  subtree: true
+              });
+          });
+        }
+        waitForElm('canvas').then((elm) => {
+          elm.style.backgroundColor = "rgb(255, 255, 255)";
+          elm.style.border = "2px solid #000000";
+          elm.style.width = "290px";
+          elm.style.height = "290px";
+        });
+      </script>
 </body>
 </html>
