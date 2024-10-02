@@ -15,25 +15,23 @@
         margin: 0;
         padding: 100px;
         text-align: left;
+        font-size: 140%; 
       }
 
       h1 {
         text-align: center;
-        font-size: 2.5em;
         margin-bottom: 20px;
         color: #000000;
       }
 
       h2 {
         text-align: center;
-        font-size: 2em;
         margin-bottom: 20px;
         color: #000000;
       }
 
       h3 {
         text-align: center;
-        font-size: 1.5em;
         margin-bottom: 20px;
         color: #000000;
       }
@@ -131,7 +129,7 @@
         without the need for collective variables (CVs).
       </li>
       <li>
-        TPS-DPS minimize the <strong>log-variance divergence</strong> between
+        TPS-DPS minimizes the <strong>log-variance divergence</strong> between
         the path measure induced by the model and the target path measure.
       </li>
       <li>
@@ -166,17 +164,7 @@
     </p>
     <br />
     <h2>TPS-DPS on synthetic system</h2>
-    <ul>
-      <li>
-        We first evaluate TPS-DPS on the synthetic double-well potential and three
-        real-world molecular systems: Alanine Dipeptide, Polyproline Helix, and
-        Chignolin.
-      </li>
-      <li>
-        For the Double-well system, we plot the potential energy landscape
-        modified by the neural bias potential.
-      </li>
-    </ul>
+    We first evaluate our method on a two-dimensional synthetic system, i.e., a double-well potential at 1200K. This system has two global minima (white circles) representing the meta-stable states, and two reaction pathways via saddle points (white stars). We sample transition paths from the left meta-stable state to the right meta-stable state. Additionally, we plot the potential energy landscape modified by the neural bias potential.
     <br />
     <div class="flex-container">
       <h3>Double-well<br />system</h3>
@@ -201,6 +189,7 @@
     </div>
     <br><br><br><br>
     <h2>Transition paths sampled from TPS-DPS on molecular systems.</h2>
+    We also evaluate our method in real-world molecular system with various numbers of amino acids: Alanine Dipeptide, Polyproline Helix, and Chignolin. We compare our method with both classical and ML approaches, assessing the accuracy and diversity of sampled transition paths.
     <ul>
       <li>
         For real-world molecular systems, we present the initial and target state,
@@ -301,7 +290,7 @@
     <ul>
       <li>We compared TPS-DPS with both non-ML and ML baselines.</li>
       <li>
-        For non-ML baselines, we consider steered MD (SMD) with force constant.
+        For non-ML baselines, we consider steered MD (SMD) with force constant and collective variables.
       </li>
       <li>
         For ML baselines, we consider Path Integral SOC for Path Sampling
@@ -470,5 +459,18 @@
         </div>
       </div>
     </div>
+    <h3>References</h3>
+    This project page has been made using the following libraries and codes.
+    <ul>
+      <li>
+        <a href="https://github.com/mdtraj/mdtrajl">MDTraj</a>
+      </li>
+      <li>
+        <a href="https://github.com/nglviewer/ngl">NGL</a>
+      </li>
+      <li>
+        <a href="https://nglviewer.org/mdsrv/index.html2">MDSRV</a>
+      </li>
+    </ul>
   </body>
 </html>
