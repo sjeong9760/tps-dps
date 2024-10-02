@@ -1,20 +1,14 @@
-# Notice: our loss function is equivalent to relative trajectory balance
-# [https://arxiv.org/abs/2405.20971] when discretized.
-# See appendix A.2 of our paper for the equivalence.
-# Our current implementation is based on the relative trajectories balance.
-# Another implementation without GFlowNet objective will be available.
-
 import torch
 import numpy as np
 from tqdm import tqdm
 from utils.utils import *
-from bias import ExternalForce
+from bias import BiasForce
 
 
-class FlowNetAgent:
+class DiffusionPathSampler:
     def __init__(self, args, mds):
-        self.policy = ExternalForce(args, mds)
-        self.reward = Reward(args, mds)
+        self.policy = BiasForce(args, mds)
+        self.target_measure = TargetMeasure(args, mds)
 
         if args.training:
             self.replay = ReplayBuffer(args, mds)
@@ -48,10 +42,10 @@ class FlowNetAgent:
             forces[:, s] = force - 1e-6 * bias  # kJ/(mol*nm) -> (da*nm)/fs**2
         mds.reset()
 
-        log_reward, final_idx = self.reward(positions, forces)
+        log_tm, final_idx = self.target_measure(positions, forces)
 
         if args.training:
-            self.replay.add((positions, forces, log_reward))
+            self.replay.add((positions, forces, log_tm))
 
         for i in range(args.num_samples):
             if final_idx is not None:
@@ -73,10 +67,10 @@ class FlowNetAgent:
             ]
         )
 
-        loss = 0
+        loss_sum = 0
         for _ in tqdm(range(args.trains_per_rollout), desc="Training"):
 
-            positions, forces, log_reward = self.replay.sample()
+            positions, forces, log_tm = self.replay.sample()
 
             velocities = (positions[:, 1:] - positions[:, :-1]) / args.timestep
 
@@ -90,15 +84,12 @@ class FlowNetAgent:
                 1 - args.friction * args.timestep
             ) * velocities + args.timestep / mds.m * (forces[:, :-1] + biases[:, :-1])
 
-            log_forward = mds.log_prob(velocities[:, 1:] - means[:, :-1]).mean(
-                (1, 2, 3)
-            )
+            log_bpm = mds.log_prob(velocities[:, 1:] - means[:, :-1]).mean((1, 2, 3))
 
-            # our loss function is equivalent to relative trajectory balance
-            # See appendix A.2 of our paper for the equivalence.
+            # Our implementation is based on results in appendix A.2
             log_z = self.policy.log_z
-            tb_loss = (log_z + log_forward - log_reward).square().mean()
-            tb_loss.backward()
+            loss = (log_z + log_bpm - log_tm).square().mean()
+            loss.backward()
 
             for group in optimizer.param_groups:
                 torch.nn.utils.clip_grad_norm_(group["params"], args.max_grad_norm)
@@ -106,8 +97,8 @@ class FlowNetAgent:
             optimizer.step()
             optimizer.zero_grad()
 
-            loss += tb_loss.item()
-        loss /= args.trains_per_rollout
+            loss_sum += loss.item()
+        loss = loss_sum / args.trains_per_rollout
         return loss
 
 
@@ -121,7 +112,7 @@ class ReplayBuffer:
             (args.buffer_size, args.num_steps + 1, mds.num_particles, 3),
             device=args.device,
         )
-        self.log_reward = torch.zeros(args.buffer_size, device=args.device)
+        self.log_tm = torch.zeros(args.buffer_size, device=args.device)
 
         self.idx = 0
         self.device = args.device
@@ -136,7 +127,7 @@ class ReplayBuffer:
         (
             self.positions[indices],
             self.forces[indices],
-            self.log_reward[indices],
+            self.log_tm[indices],
         ) = data
 
     def sample(self):
@@ -144,11 +135,11 @@ class ReplayBuffer:
         return (
             self.positions[indices],
             self.forces[indices],
-            self.log_reward[indices],
+            self.log_tm[indices],
         )
 
 
-class Reward:
+class TargetMeasure:
     def __init__(self, args, mds):
         self.sigma = args.sigma
         self.timestep = args.timestep
@@ -160,42 +151,38 @@ class Reward:
         self.log_prob = mds.log_prob
 
     def __call__(self, positions, forces):
-        log_running_reward = self.running_reward(positions, forces)
-        log_target_reward, final_idx = self.target_reward(
-            positions, self.target_position
-        )
+        log_upm = self.unbiased_path_measure(positions, forces)
+        log_ri, final_idx = self.relaxed_indicator(positions, self.target_position)
 
-        log_reward = log_running_reward + log_target_reward
-        return log_reward, final_idx
+        log_tm = log_upm + log_ri
+        return log_tm, final_idx
 
-    def running_reward(self, positions, forces):
+    def unbiased_path_measure(self, positions, forces):
         velocities = (positions[:, 1:] - positions[:, :-1]) / self.timestep
         means = (
             1 - self.friction * self.timestep
         ) * velocities + self.timestep / self.m * forces[:, :-1]
-        log_running_reward = self.log_prob(velocities[:, 1:] - means[:, :-1]).mean(
-            (1, 2, 3)
-        )
-        return log_running_reward
+        log_upm = self.log_prob(velocities[:, 1:] - means[:, :-1]).mean((1, 2, 3))
+        return log_upm
 
-    def target_reward(self, positions, target_position):
+    def relaxed_indicator(self, positions, target_position):
         positions = positions[:, :, self.heavy_atoms]
         target_position = target_position[:, self.heavy_atoms]
-        log_target_reward = torch.zeros(positions.size(0), device=positions.device)
+        log_ri = torch.zeros(positions.size(0), device=positions.device)
         final_idx = torch.zeros(
             positions.size(0), device=positions.device, dtype=torch.long
         )
         for i in range(positions.size(0)):
-            log_target_reward[i], final_idx[i] = self.rmsd(
+            log_ri[i], final_idx[i] = self.rmsd(
                 positions[i],
                 target_position,
             ).max(0)
-        return log_target_reward, final_idx
+        return log_ri, final_idx
 
     def rmsd(self, positions, target_position):
         R, t = kabsch(positions, target_position)
         positions = torch.matmul(positions, R.transpose(-2, -1)) + t
-        log_target_reward = (
+        log_ri = (
             -0.5 / self.sigma**2 * (positions - target_position).square().mean((-2, -1))
         )
-        return log_target_reward
+        return log_ri

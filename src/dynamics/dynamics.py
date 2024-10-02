@@ -1,4 +1,4 @@
-# Notice: we refer to https://github.com/LarsHoldijk/SOCTransitionPaths/blob/master/potentials/alanine_md.py
+# We refer to https://github.com/LarsHoldijk/SOCTransitionPaths/blob/master/potentials/alanine_md.py
 # for applying neural network bias force to OpenMM
 
 import os

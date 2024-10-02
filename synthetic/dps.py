@@ -1,20 +1,13 @@
-# Notice: our loss function is equivalent to relative trajectory balance
-# [https://arxiv.org/abs/2405.20971] when discretized.
-# See appendix A.2 of our paper for the equivalence.
-# Our current implementation is based on GFlowNets.
-# Another implementation without GFlowNet objective will be available.
-
-
 import torch
 import numpy as np
 from tqdm import tqdm
-from bias import ExternalForce
+from bias import BiasForce
 
 
-class FlowNetAgent:
+class DiffusionPathSampler:
     def __init__(self, args, mds):
-        self.policy = ExternalForce(args)
-        self.reward = Reward(args, mds)
+        self.policy = BiasForce(args)
+        self.target_measure = TargetMeasure(args, mds)
 
         if args.training:
             self.replay = ReplayBuffer(args)
@@ -54,10 +47,10 @@ class FlowNetAgent:
             positions[:, s + 1] = position
             forces[:, s + 1] = force
 
-        log_reward, final_idx = self.reward(positions, forces)
+        log_tm, final_idx = self.target_measure(positions, forces)
 
         if args.training:
-            self.replay.add((positions, forces, log_reward))
+            self.replay.add((positions, forces, log_tm))
 
         for i in range(args.num_samples):
             if final_idx is not None:
@@ -79,19 +72,18 @@ class FlowNetAgent:
             ]
         )
 
-        loss = 0
+        loss_sum = 0
         for _ in tqdm(range(args.trains_per_rollout), desc="Training"):
 
-            positions, forces, log_reward = self.replay.sample()
+            positions, forces, log_tm = self.replay.sample()
             biases = self.policy(positions, mds.target_position)
             means = positions + (forces + biases) * args.timestep
-            log_forward = mds.log_prob(positions[:, 1:] - means[:, :-1]).mean((1, 2))
+            log_bpm = mds.log_prob(positions[:, 1:] - means[:, :-1]).mean((1, 2))
 
-            # our loss function is equivalent to relative trajectory balance
-            # See appendix A.2 of our paper for the equivalence.
+            # Our implementation is based on results in appendix A.2
             log_z = self.policy.log_z
-            tb_loss = (log_z + log_forward - log_reward).square().mean()
-            tb_loss.backward()
+            loss = (log_z + log_bpm - log_tm).square().mean()
+            loss.backward()
 
             for group in optimizer.param_groups:
                 torch.nn.utils.clip_grad_norm_(group["params"], args.max_grad_norm)
@@ -99,8 +91,8 @@ class FlowNetAgent:
             optimizer.step()
             optimizer.zero_grad()
 
-            loss += tb_loss.item()
-        loss /= args.trains_per_rollout
+            loss_sum += loss.item()
+        loss = loss_sum / args.trains_per_rollout
         return loss
 
 
@@ -140,7 +132,7 @@ class ReplayBuffer:
         )
 
 
-class Reward:
+class TargetMeasure:
     def __init__(self, args, mds):
         self.sigma = args.sigma
         self.log_prob = mds.log_prob
@@ -148,23 +140,19 @@ class Reward:
         self.target_position = mds.target_position
 
     def __call__(self, positions, forces):
-        log_running_reward = self.running_reward(positions, forces)
-        log_target_reward, final_idx = self.target_reward(
-            positions, self.target_position
-        )
+        log_upm = self.unbiased_path_measure(positions, forces)
+        log_ri, final_idx = self.relaxed_indicator(positions, self.target_position)
 
-        log_reward = log_running_reward + log_target_reward
+        log_reward = log_upm + log_ri
         return log_reward, final_idx
 
-    def running_reward(self, positions, forces):
+    def unbiased_path_measure(self, positions, forces):
         means = positions + forces * self.timestep
-        log_running_reward = self.log_prob(positions[:, 1:] - means[:, :-1]).mean(
-            (1, 2)
-        )
-        return log_running_reward
+        log_upm = self.log_prob(positions[:, 1:] - means[:, :-1]).mean((1, 2))
+        return log_upm
 
-    def target_reward(self, positions, target_position):
-        log_target_reward, final_idx = (
+    def relaxed_indicator(self, positions, target_position):
+        log_ri, final_idx = (
             self.rmsd(
                 positions.view(-1, positions.size(-1)),
                 target_position,
@@ -172,9 +160,9 @@ class Reward:
             .view(positions.size(0), positions.size(1))
             .max(1)
         )
-        return log_target_reward, final_idx
+        return log_ri, final_idx
 
     def rmsd(self, positions, target_position):
         msd = (positions - target_position).square().mean(-1)
-        log_target_reward = -0.5 / self.sigma**2 * msd
-        return log_target_reward
+        log_ri = -0.5 / self.sigma**2 * msd
+        return log_ri

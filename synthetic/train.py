@@ -2,9 +2,9 @@ import os
 import torch
 import argparse
 
-from flow import FlowNetAgent
 from utils.logging import Log
 from dynamics import Synthetic
+from dps import DiffusionPathSampler
 
 parser = argparse.ArgumentParser()
 
@@ -60,7 +60,7 @@ if __name__ == "__main__":
 
     mds = Synthetic(args)
     log = Log(args, mds)
-    agent = FlowNetAgent(args, mds)
+    agent = DiffusionPathSampler(args, mds)
 
     temperatures = torch.linspace(
         args.start_temperature, args.end_temperature, args.num_rollouts

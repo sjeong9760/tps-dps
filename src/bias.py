@@ -4,7 +4,7 @@ from utils.utils import kabsch
 from torch.nn.functional import softplus
 
 
-class ExternalForce(nn.Module):
+class BiasForce(nn.Module):
     def __init__(self, args, mds):
         super().__init__()
         self.bias = args.bias
