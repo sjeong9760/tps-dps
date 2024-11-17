@@ -8,10 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then(function (comp) {
       comp.setName("simulation-trpcage");
+      comp.addRepresentation("ball+stick", {
+        aspectRatio: 1.0,
+        radius: 0.15,
+      });
       comp.addTrajectory();
     });
 
-  var toggleSpin_trpcage = document.getElementById("toggleSpin-trpcage");
+  var toggleSpin_trpcage = document.getElementById(
+    "toggleSpin-trpcage"
+  );
   var isSpinning_trpcage = false;
   toggleSpin_trpcage.addEventListener("click", function () {
     if (!isSpinning_trpcage) {
@@ -23,18 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  var toggleRunMDs_trpcage = document.getElementById("toggleRunMDs-trpcage");
+  var toggleRunMDs_trpcage = document.getElementById(
+    "toggleRunMDs-trpcage"
+  );
   var isRunning_trpcage = false;
   toggleRunMDs_trpcage.addEventListener("click", function () {
-    var trajComp_trpcage =
-      stage_trpcage.getComponentsByName("simulation-trpcage").list[0]
-        .trajList[0];
-    var player_trpcage = new NGL.TrajectoryPlayer(trajComp_trpcage.trajectory, {
-      step: 40,
-      mode: "once",
-      interpolateType: "spline",
-      timeout: 200,
-    });
+    var trajComp_trpcage = stage_trpcage.getComponentsByName(
+      "simulation-trpcage"
+    ).list[0].trajList[0];
+    var player_trpcage = new NGL.TrajectoryPlayer(
+      trajComp_trpcage.trajectory,
+      { step: 80, mode: "once", interpolateType: "spline", timeout: 200 }
+    );
     if (!isRunning_trpcage) {
       player_trpcage.play();
       isRunning_trpcage = true;
@@ -50,7 +56,29 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_trpcage_initial.loadFile("./page/data/trpcage/unfolded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
+  }).then(function (comp) {
+    comp.addRepresentation("ball+stick", {
+      aspectRatio: 1.0,
+      radius: 0.15,
+    });
+    comp.addRepresentation("distance", {
+      atomPair: [[37, 76]],
+      color: "#FEC220",
+      linewidth: 12.0,
+      useCylinder: true,
+      radius: 0.3,
+      label_size: 0,
+    });
+    comp.addRepresentation("distance", {
+      atomPair: [[30, 95]],
+      color: "#3FA796",
+      linewidth: 12.0,
+      useCylinder: true,
+      radius: 0.3,
+      labelSize: 0,
+    });
   });
+
   var toggleSpin_trpcage_initial = document.getElementById("toggleSpin-trpcage-inital");
   var isSpinning_trpcage_initial = false;
   toggleSpin_trpcage_initial.addEventListener("click", function () {
@@ -68,7 +96,29 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_trpcage_target.loadFile("./page/data/trpcage/folded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
+  }).then(function (comp) {
+    comp.addRepresentation("ball+stick", {
+      aspectRatio: 1.0,
+      radius: 0.15,
+    });
+    comp.addRepresentation("distance", {
+      atomPair: [[37, 76]],
+      color: "#FEC220",
+      linewidth: 12.0,
+      useCylinder: true,
+      radius: 0.3,
+      label_size: 0,
+    });
+    comp.addRepresentation("distance", {
+      atomPair: [[30, 95]],
+      color: "#3FA796",
+      linewidth: 12.0,
+      useCylinder: true,
+      radius: 0.3,
+      labelSize: 0,
+    });
   });
+  
   var toggleSpin_trpcage_target = document.getElementById("toggleSpin-trpcage-target")
   var isSpinning_trpcage_target = false;
   toggleSpin_trpcage_target.addEventListener("click", function () {
