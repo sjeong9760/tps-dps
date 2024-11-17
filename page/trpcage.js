@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_trpcage = new NGL.Stage("viewport-trpcage");
   stage_trpcage.setParameters({ backgroundColor: "white" });
   stage_trpcage
-    .loadFile("./page/data/trpcage/trpcage-path.gro", {
+    .loadFile("./page/data/trpcage/trpcage.gro", {
       defaultRepresentation: true,
       asTrajectory: true,
     })
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_trpcage_initial = new NGL.Stage("viewport-trpcage-initial");
   stage_trpcage_initial.setParameters({ backgroundColor: "white" });
-  stage_trpcage_initial.loadFile("./page/data/trpcage/trpcage-unfolded.pdb", {
+  stage_trpcage_initial.loadFile("./page/data/trpcage/unfolded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   });
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_trpcage_target = new NGL.Stage("viewport-trpcage-target");
   stage_trpcage_target.setParameters({ backgroundColor: "white" });
-  stage_trpcage_target.loadFile("./page/data/trpcage/trpcage-folded.pdb", {
+  stage_trpcage_target.loadFile("./page/data/trpcage/folded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   });
