@@ -61,22 +61,6 @@ document.addEventListener("DOMContentLoaded", function () {
       aspectRatio: 1.0,
       radius: 0.15,
     });
-    comp.addRepresentation("distance", {
-      atomPair: [[37, 76]],
-      color: "#FEC220",
-      linewidth: 12.0,
-      useCylinder: true,
-      radius: 0.3,
-      label_size: 0,
-    });
-    comp.addRepresentation("distance", {
-      atomPair: [[30, 95]],
-      color: "#3FA796",
-      linewidth: 12.0,
-      useCylinder: true,
-      radius: 0.3,
-      labelSize: 0,
-    });
   });
 
   var toggleSpin_trpcage_initial = document.getElementById("toggleSpin-trpcage-inital");
@@ -100,22 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
     comp.addRepresentation("ball+stick", {
       aspectRatio: 1.0,
       radius: 0.15,
-    });
-    comp.addRepresentation("distance", {
-      atomPair: [[37, 76]],
-      color: "#FEC220",
-      linewidth: 12.0,
-      useCylinder: true,
-      radius: 0.3,
-      label_size: 0,
-    });
-    comp.addRepresentation("distance", {
-      atomPair: [[30, 95]],
-      color: "#3FA796",
-      linewidth: 12.0,
-      useCylinder: true,
-      radius: 0.3,
-      labelSize: 0,
     });
   });
   
