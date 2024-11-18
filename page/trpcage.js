@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then(function (comp) {
       comp.setName("simulation-trpcage");
+      comp.removeRepresentation("ribbon")
       comp.addRepresentation("ball+stick", {
         aspectRatio: 1.0,
         radius: 0.15,
@@ -98,5 +99,5 @@ document.addEventListener("DOMContentLoaded", function () {
       isSpinning_trpcage_target = false;
     }
   });
-  
+
 });
