@@ -2,13 +2,13 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_trpcage = new NGL.Stage("viewport-trpcage");
   stage_trpcage.setParameters({ backgroundColor: "white" });
   stage_trpcage
-    .loadFile("./page/data/trpcage/trpcage.dcd", {
-      defaultRepresentation: true,
-      asTrajectory: true,
+    .loadFile("./page/data/trpcage/trpcage.gro", {
+      defaultRepresentation: false,
+      asTrajectory: false,
     })
     .then(function (comp) {
       comp.setName("simulation-trpcage");
-      comp.removeRepresentation("ribbon")
+      // comp.removeRepresentation("ribbon")
       comp.addRepresentation("ball+stick", {
         aspectRatio: 1.0,
         radius: 0.15,
