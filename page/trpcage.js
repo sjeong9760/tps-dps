@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_trpcage = new NGL.Stage("viewport-trpcage");
   stage_trpcage.setParameters({ backgroundColor: "white" });
   stage_trpcage
-    .loadFile("./page/data/trpcage/trpcage.gro", {
+    .loadFile("./page/data/trpcage/trpcage.dcd", {
       defaultRepresentation: true,
       asTrajectory: true,
     })
