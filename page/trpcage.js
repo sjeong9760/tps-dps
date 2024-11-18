@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_trpcage
     .loadFile("./page/data/trpcage/trpcage.gro", {
       defaultRepresentation: false,
-      asTrajectory: false,
+      asTrajectory: true,
     })
     .then(function (comp) {
       comp.setName("simulation-trpcage");
