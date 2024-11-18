@@ -1,0 +1,4 @@
+page/data/bba/bba.gro filter=lfs diff=lfs merge=lfs -text
+page/data/trpcage/trpcage.gro filter=lfs diff=lfs merge=lfs -text
+page/data/trpcage/trpcage.gro
+ filter=lfs diff=lfs merge=lfs -text

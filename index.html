@@ -116,6 +116,8 @@
     <script src="./page/alanine.js"></script>
     <script src="./page/poly.js"></script>
     <script src="./page/chignolin.js"></script>
+    <script src="./page/bba.js"></script>
+    <script src="./page/trpcage.js"></script>
     <h1>
       Transition Path Sampling
       <br />
@@ -202,6 +204,7 @@
       <li>Scroll (up/down): zooms in/out the molecule.</li>
       </li>
     </ul>
+    
     <div class="flex-container">
       <h3>Alanine<br />Dipeptide</h3>
       <div class="gif-container">
@@ -229,6 +232,7 @@
         </div>
       </div>
     </div>
+    
     <br><br><br><br>
     <div class="flex-container">
       <h3>Polyproline<br />Helix</h3>
@@ -257,6 +261,7 @@
         </div>
       </div>
     </div>
+    
     <br><br><br><br>
     <div class="flex-container">
       <h3>Chignolin</h3>
@@ -285,6 +290,73 @@
         </div>
       </div>
     </div>
+        
+    <br><br><br><br>
+    <div class="flex-container">
+      <h3>Trp-cage</h3>
+      <div class="gif-container">
+        <div class="gif-item">
+          <div id="viewport-trpcage-initial" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Initial state (unfolded)</p> 
+          <div class="button-container">
+            <button id="toggleSpin-trpcage-inital">Spin on/off</button>
+          </div>
+        </div>
+        <div class="gif-item">
+          <img src="./page/data/trpcage/trpcage.gif" alt="GIF transition of Trp-cage" style="width:360px; height:360px; margin:0 auto;">
+          <p>Sampled transition (folding)</p>
+        </div>
+        <!-- <div class="gif-item">
+          <div id="viewport-trpcage" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Sampled transition (folding)</p>
+          <div class="button-container">
+            <button id="toggleSpin-trpcage">Spin on/off</button>
+            <button id="toggleRunMDs-trpcage">Run/pause MD</button>
+          </div>
+        </div> -->
+        <div class="gif-item">
+          <div id="viewport-trpcage-target" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Target state (folded)</p> 
+          <div class="button-container">
+            <button id="toggleSpin-trpcage-target">Spin on/off</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <br><br><br><br>
+    <div class="flex-container">
+      <h3>BBA</h3>
+      <div class="gif-container">
+        <div class="gif-item">
+          <div id="viewport-bba-initial" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Initial state (unfolded)</p> 
+          <div class="button-container">
+            <button id="toggleSpin-bba-inital">Spin on/off</button>
+          </div>
+        </div>
+        <div class="gif-item">
+          <img src="./page/data/bba/bba.gif" alt="GIF transition of BBA" style="width:360px; height:360px; margin:0 auto;">
+          <p>Sampled transition (folding)</p>
+          <!-- <div id="viewport-bba" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Sampled transition (folding)</p>
+          <div class="button-container">
+            <button id="toggleSpin-bba">Spin on/off</button>
+            <button id="toggleRunMDs-bba">Run/pause MD</button>
+          </div> -->
+        </div>
+        <div class="gif-item">
+          <div id="viewport-bba-target" style="width:360px; height:360px; margin:0 auto;"></div>
+          <p>Target state (folded)</p> 
+          <div class="button-container">
+            <button id="toggleSpin-bba-target">Spin on/off</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+    
     <br />
     <h2>Comparsions with baselines</h2>
     <ul>
