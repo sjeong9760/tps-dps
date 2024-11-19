@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_alanine = new NGL.Stage("viewport-alanine");
   stage_alanine.setParameters({ backgroundColor: "white" });
   stage_alanine
-    .loadFile("./page/data/alanine-path.gro", {
+    .loadFile("./page/data/alanine/alanine-path.gro", {
       defaultRepresentation: true,
       asTrajectory: true,
     })
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_alanine_initial = new NGL.Stage("viewport-alanine-initial");
   stage_alanine_initial.setParameters({ backgroundColor: "white" });
-  stage_alanine_initial.loadFile("./page/data/alanine-c5.pdb", {
+  stage_alanine_initial.loadFile("./page/data/alanine/alanine-c5.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   });
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_alanine_target = new NGL.Stage("viewport-alanine-target");
   stage_alanine_target.setParameters({ backgroundColor: "white" });
-  stage_alanine_target.loadFile("./page/data/alanine-c7ax.pdb", {
+  stage_alanine_target.loadFile("./page/data/alanine/alanine-c7ax.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   });
