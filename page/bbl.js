@@ -81,9 +81,13 @@ document.addEventListener("DOMContentLoaded", function () {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
+    comp.removeRepresentation("ball+stick");
     comp.addRepresentation("ball+stick", {
       aspectRatio: 1.0,
-      radius: 0.15,
+      radius: 0.1,
+    });
+    comp.addRepresentation("ribbon", {
+      colorScheme: "protein"
     });
   });
   

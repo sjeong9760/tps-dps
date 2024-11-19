@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_trpcage.setParameters({ backgroundColor: "white" });
   stage_trpcage
     .loadFile("./page/data/trpcage/trpcage.gro", {
-      defaultRepresentation: false,
+      defaultRepresentation: true,
       asTrajectory: true,
     })
     .then(function (comp) {

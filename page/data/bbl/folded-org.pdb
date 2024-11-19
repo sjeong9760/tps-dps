@@ -1,5 +1,188 @@
+HEADER    TRANSFERASE                             06-NOV-09   2WXC              
 TITLE     THE FOLDING MECHANISM OF BBL: PLASTICITY OF TRANSITION-STATE STRUCTURE
-TITLE    2 OBSERVED WITHIN AN ULTRAFAST FOLDING PROTEIN FAMILY.                                                                                                               
+TITLE    2 OBSERVED WITHIN AN ULTRAFAST FOLDING PROTEIN FAMILY.                 
+COMPND    MOL_ID: 1;                                                            
+COMPND   2 MOLECULE: DIHYDROLIPOYLTRANSSUCCINASE;                               
+COMPND   3 CHAIN: A;                                                            
+COMPND   4 FRAGMENT: RESIDUES 109-153;                                          
+COMPND   5 EC: 2.3.1.61;                                                        
+COMPND   6 ENGINEERED: YES;                                                     
+COMPND   7 MUTATION: YES                                                        
+SOURCE    MOL_ID: 1;                                                            
+SOURCE   2 ORGANISM_SCIENTIFIC: ESCHERICHIA COLI;                               
+SOURCE   3 ORGANISM_TAXID: 562;                                                 
+SOURCE   4 EXPRESSION_SYSTEM: ESCHERICHIA COLI;                                 
+SOURCE   5 EXPRESSION_SYSTEM_TAXID: 562;                                        
+SOURCE   6 EXPRESSION_SYSTEM_VECTOR: MODIFIED PRSETA                            
+KEYWDS    LIPOYL, TRANSFERASE, ACYLTRANSFERASE                                  
+EXPDTA    SOLUTION NMR                                                          
+NUMMDL    20                                                                    
+AUTHOR    H.NEUWEILER,T.D.SHARPE,T.J.RUTHERFORD,C.M.JOHNSON,M.D.ALLEN,          
+AUTHOR   2 N.FERGUSON,A.R.FERSHT                                                
+REVDAT   3   15-MAY-24 2WXC    1       REMARK                                   
+REVDAT   2   19-APR-17 2WXC    1       REMARK                                   
+REVDAT   1   17-NOV-09 2WXC    0                                                
+SPRSDE     17-NOV-09 2WXC      2WAV                                             
+JRNL        AUTH   H.NEUWEILER,T.D.SHARPE,T.J.RUTHERFORD,C.M.JOHNSON,M.D.ALLEN, 
+JRNL        AUTH 2 N.FERGUSON,A.R.FERSHT                                        
+JRNL        TITL   THE FOLDING MECHANISM OF BBL: PLASTICITY OF TRANSITION-STATE 
+JRNL        TITL 2 STRUCTURE OBSERVED WITHIN AN ULTRAFAST FOLDING PROTEIN       
+JRNL        TITL 3 FAMILY.                                                      
+JRNL        REF    J.MOL.BIOL.                   V. 390  1060 2009              
+JRNL        REFN                   ISSN 0022-2836                               
+JRNL        PMID   19445954                                                     
+JRNL        DOI    10.1016/J.JMB.2009.05.011                                    
+REMARK   2                                                                      
+REMARK   2 RESOLUTION. NOT APPLICABLE.                                          
+REMARK   3                                                                      
+REMARK   3 REFINEMENT.                                                          
+REMARK   3   PROGRAM     : CNS 1.1                                              
+REMARK   3   AUTHORS     : BRUNGER,ADAMS,CLORE,DELANO,GROS,GROSSE-              
+REMARK   3                 KUNSTLEVE,JIANG,KUSZEWSKI,NILGES,PANNU,READ, RICE,   
+REMARK   3                 SIMONSON,WARREN                                      
+REMARK   3                                                                      
+REMARK   3  OTHER REFINEMENT REMARKS: NULL                                      
+REMARK   4                                                                      
+REMARK   4 2WXC COMPLIES WITH FORMAT V. 3.30, 13-JUL-11                         
+REMARK 100                                                                      
+REMARK 100 THIS ENTRY HAS BEEN PROCESSED BY PDBE ON 06-NOV-09.                  
+REMARK 100 THE DEPOSITION ID IS D_1290041668.                                   
+REMARK 210                                                                      
+REMARK 210 EXPERIMENTAL DETAILS                                                 
+REMARK 210  EXPERIMENT TYPE                : NMR                                
+REMARK 210  TEMPERATURE           (KELVIN) : 298.0                              
+REMARK 210  PH                             : 7.0                                
+REMARK 210  IONIC STRENGTH                 : NULL                               
+REMARK 210  PRESSURE                       : 1.0 ATM                            
+REMARK 210  SAMPLE CONTENTS                : 10% WATER/90% D2O                  
+REMARK 210                                                                      
+REMARK 210  NMR EXPERIMENTS CONDUCTED      : NULL                               
+REMARK 210  SPECTROMETER FIELD STRENGTH    : 600 MHZ; 800 MHZ; 500 MHZ          
+REMARK 210  SPECTROMETER MODEL             : AVANCE; DMX                        
+REMARK 210  SPECTROMETER MANUFACTURER      : BRUKER                             
+REMARK 210                                                                      
+REMARK 210  STRUCTURE DETERMINATION.                                            
+REMARK 210   SOFTWARE USED                 : ANSIG 3.3                          
+REMARK 210   METHOD USED                   : CNS                                
+REMARK 210                                                                      
+REMARK 210 CONFORMERS, NUMBER CALCULATED   : 20                                 
+REMARK 210 CONFORMERS, NUMBER SUBMITTED    : 20                                 
+REMARK 210 CONFORMERS, SELECTION CRITERIA  : NO VIOLATIONS                      
+REMARK 210                                                                      
+REMARK 210 BEST REPRESENTATIVE CONFORMER IN THIS ENSEMBLE : 1                   
+REMARK 210                                                                      
+REMARK 210 REMARK: THE STRUCTURE WAS DETERMINED USING TRIPLE-RESONANCE NMR      
+REMARK 210  SPECTROSCOPY ON 13C, 15N-LABELED MATERIAL AND BU 1H METHODS         
+REMARK 215                                                                      
+REMARK 215 NMR STUDY                                                            
+REMARK 215 THE COORDINATES IN THIS ENTRY WERE GENERATED FROM SOLUTION           
+REMARK 215 NMR DATA.  PROTEIN DATA BANK CONVENTIONS REQUIRE THAT                
+REMARK 215 CRYST1 AND SCALE RECORDS BE INCLUDED, BUT THE VALUES ON              
+REMARK 215 THESE RECORDS ARE MEANINGLESS.                                       
+REMARK 300                                                                      
+REMARK 300 BIOMOLECULE: 1                                                       
+REMARK 300 SEE REMARK 350 FOR THE AUTHOR PROVIDED AND/OR PROGRAM                
+REMARK 300 GENERATED ASSEMBLY INFORMATION FOR THE STRUCTURE IN                  
+REMARK 300 THIS ENTRY. THE REMARK MAY ALSO PROVIDE INFORMATION ON               
+REMARK 300 BURIED SURFACE AREA.                                                 
+REMARK 350                                                                      
+REMARK 350 COORDINATES FOR A COMPLETE MULTIMER REPRESENTING THE KNOWN           
+REMARK 350 BIOLOGICALLY SIGNIFICANT OLIGOMERIZATION STATE OF THE                
+REMARK 350 MOLECULE CAN BE GENERATED BY APPLYING BIOMT TRANSFORMATIONS          
+REMARK 350 GIVEN BELOW.  BOTH NON-CRYSTALLOGRAPHIC AND                          
+REMARK 350 CRYSTALLOGRAPHIC OPERATIONS ARE GIVEN.                               
+REMARK 350                                                                      
+REMARK 350 BIOMOLECULE: 1                                                       
+REMARK 350 AUTHOR DETERMINED BIOLOGICAL UNIT: MONOMERIC                         
+REMARK 350 APPLY THE FOLLOWING TO CHAINS: A                                     
+REMARK 350   BIOMT1   1  1.000000  0.000000  0.000000        0.00000            
+REMARK 350   BIOMT2   1  0.000000  1.000000  0.000000        0.00000            
+REMARK 350   BIOMT3   1  0.000000  0.000000  1.000000        0.00000            
+REMARK 400                                                                      
+REMARK 400 COMPOUND                                                             
+REMARK 400 ENGINEERED RESIDUE IN CHAIN A, HIS 125 TO TRP                        
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: CLOSE CONTACTS                                             
+REMARK 500                                                                      
+REMARK 500 THE FOLLOWING ATOMS ARE IN CLOSE CONTACT.                            
+REMARK 500                                                                      
+REMARK 500  ATM1  RES C  SSEQI   ATM2  RES C  SSEQI           DISTANCE          
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 500                                                                      
+REMARK 500 GEOMETRY AND STEREOCHEMISTRY                                         
+REMARK 500 SUBTOPIC: TORSION ANGLES                                             
+REMARK 500                                                                      
+REMARK 500 TORSION ANGLES OUTSIDE THE EXPECTED RAMACHANDRAN REGIONS:            
+REMARK 500 (M=MODEL NUMBER; RES=RESIDUE NAME; C=CHAIN IDENTIFIER;               
+REMARK 500 SSEQ=SEQUENCE NUMBER; I=INSERTION CODE).                             
+REMARK 500                                                                      
+REMARK 500 STANDARD TABLE:                                                      
+REMARK 500 FORMAT:(10X,I3,1X,A3,1X,A1,I4,A1,4X,F7.2,3X,F7.2)                    
+REMARK 500                                                                      
+REMARK 500 EXPECTED VALUES: GJ KLEYWEGT AND TA JONES (1996). PHI/PSI-           
+REMARK 500 CHOLOGY: RAMACHANDRAN REVISITED. STRUCTURE 4, 1395 - 1400            
+REMARK 500                                                                      
+REMARK 500  M RES CSSEQI        PSI       PHI                                   
+REMARK 500  1 ASN A 127      -56.99   -176.59                                   
+REMARK 500  1 THR A 152       75.34   -166.97                                   
+REMARK 500  1 VAL A 154       38.88   -145.01                                   
+REMARK 500  2 ASN A 128       77.69   -117.27                                   
+REMARK 500  2 ASP A 129       81.93     61.13                                   
+REMARK 500  2 VAL A 154       97.06     59.60                                   
+REMARK 500  2 LYS A 169       42.53   -107.72                                   
+REMARK 500  3 SER A 125      -41.83   -174.18                                   
+REMARK 500  3 VAL A 154      -66.52   -128.07                                   
+REMARK 500  4 SER A 125       78.26     61.16                                   
+REMARK 500  4 ASN A 127      -55.46   -125.66                                   
+REMARK 500  4 LYS A 169       40.04   -104.93                                   
+REMARK 500  6 SER A 125      -41.86   -172.89                                   
+REMARK 500  6 GLN A 126       86.60    -66.89                                   
+REMARK 500  6 VAL A 154      117.49   -176.56                                   
+REMARK 500  7 ASN A 127     -176.99     58.97                                   
+REMARK 500  7 ASP A 129       79.62   -118.99                                   
+REMARK 500  7 THR A 152       35.51   -172.29                                   
+REMARK 500  7 VAL A 154       60.30   -178.20                                   
+REMARK 500  7 ARG A 157      147.59   -177.35                                   
+REMARK 500  8 LYS A 169       61.40   -115.08                                   
+REMARK 500  9 SER A 125      -68.65   -133.05                                   
+REMARK 500  9 GLN A 126       84.50     59.92                                   
+REMARK 500  9 ASN A 127      -46.99   -157.68                                   
+REMARK 500  9 ASN A 128      -74.26    -79.09                                   
+REMARK 500  9 ASP A 129      152.20     61.54                                   
+REMARK 500  9 VAL A 154      -67.66     69.25                                   
+REMARK 500  9 LYS A 169       35.29    -96.97                                   
+REMARK 500 10 ASN A 128       41.95   -150.05                                   
+REMARK 500 10 VAL A 154      -54.39   -135.90                                   
+REMARK 500 10 LYS A 169       68.50   -112.16                                   
+REMARK 500 11 GLN A 126       31.26   -162.46                                   
+REMARK 500 11 ASN A 128      169.74     60.39                                   
+REMARK 500 11 LYS A 169       34.83    -98.40                                   
+REMARK 500 12 ASN A 128       98.11     61.75                                   
+REMARK 500 12 ASP A 129      -56.99   -120.24                                   
+REMARK 500 12 THR A 152       62.97   -114.42                                   
+REMARK 500 12 VAL A 154      -46.08   -147.26                                   
+REMARK 500 12 LYS A 169       48.67    -92.96                                   
+REMARK 500 13 SER A 125      -57.88   -164.71                                   
+REMARK 500 13 VAL A 154       51.81   -174.22                                   
+REMARK 500 14 GLN A 126       99.86     60.44                                   
+REMARK 500 14 THR A 152       32.54   -163.83                                   
+REMARK 500 14 LYS A 169       42.84    -95.63                                   
+REMARK 500 15 ASP A 129       80.39   -163.11                                   
+REMARK 500 15 THR A 152      -70.82   -139.61                                   
+REMARK 500 15 VAL A 154      -44.96   -158.72                                   
+REMARK 500 16 SER A 125       33.57   -163.35                                   
+REMARK 500 16 THR A 152       36.21    -97.85                                   
+REMARK 500 17 ASN A 128       42.03   -104.81                                   
+REMARK 500                                                                      
+REMARK 500 THIS ENTRY HAS      62 RAMACHANDRAN OUTLIERS.                        
+REMARK 500                                                                      
+REMARK 500 REMARK: NULL                                                         
+REMARK 999                                                                      
+REMARK 999 SEQUENCE                                                             
+REMARK 999 HIS-TRP POINT MUTATION WAS INTRODUCED TO ENABLE FOLDING              
+REMARK 999 ANALYSIS                                                             
 DBREF  2WXC A  124   125  PDB    2WXC     2WXC           124    125             
 DBREF  2WXC A  126   170  UNP    B7M5P0   B7M5P0_ECO8A   109    153             
 SEQADV 2WXC TRP A  142  UNP  B7M5P0    HIS   125 ENGINEERED MUTATION            
@@ -16,7 +199,8 @@ ORIGX2      0.000000  1.000000  0.000000        0.00000
 ORIGX3      0.000000  0.000000  1.000000        0.00000                         
 SCALE1      1.000000  0.000000  0.000000        0.00000                         
 SCALE2      0.000000  1.000000  0.000000        0.00000                         
-SCALE3      0.000000  0.000000  1.000000        0.00000                                                                                      
+SCALE3      0.000000  0.000000  1.000000        0.00000                         
+MODEL        1                                                                  
 ATOM      1  N   GLY A 124      -7.122 -14.918  15.009  1.00  0.00           N  
 ATOM      2  CA  GLY A 124      -7.128 -13.588  15.678  1.00  0.00           C  
 ATOM      3  C   GLY A 124      -7.129 -12.440  14.689  1.00  0.00           C  
@@ -728,4 +912,6 @@ ATOM    708  HA  ALA A 170       5.914  12.624   3.273  1.00  0.00           H
 ATOM    709  HB1 ALA A 170       5.121   9.793   3.950  1.00  0.00           H  
 ATOM    710  HB2 ALA A 170       4.362  11.246   4.602  1.00  0.00           H  
 ATOM    711  HB3 ALA A 170       6.052  10.896   4.962  1.00  0.00           H                                                  
+ENDMDL   
+MASTER      151    0    0    3    0    0    0    6  352    1    0    4          
 END  
