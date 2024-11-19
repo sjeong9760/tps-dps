@@ -34,20 +34,6 @@ class BiasForce(nn.Module):
                 nn.ReLU(),
                 nn.Linear(128, self.output_dim),
             )
-        elif args.molecule == "chignolin":
-            self.mlp = nn.Sequential(
-                nn.Linear(self.input_dim, 512),
-                nn.ReLU(),
-                nn.Linear(512, 1024),
-                nn.ReLU(),
-                nn.Linear(1024, 2048),
-                nn.ReLU(),
-                nn.Linear(2048, 1024),
-                nn.ReLU(),
-                nn.Linear(1024, 512),
-                nn.ReLU(),
-                nn.Linear(512, self.output_dim),
-            )
         elif args.molecule == "poly":
             self.mlp = nn.Sequential(
                 nn.Linear(self.input_dim, 256),
@@ -61,6 +47,21 @@ class BiasForce(nn.Module):
                 nn.Linear(512, 256),
                 nn.ReLU(),
                 nn.Linear(256, self.output_dim),
+            )
+
+        else:
+            self.mlp = nn.Sequential(
+                nn.Linear(self.input_dim, 512),
+                nn.ReLU(),
+                nn.Linear(512, 1024),
+                nn.ReLU(),
+                nn.Linear(1024, 2048),
+                nn.ReLU(),
+                nn.Linear(2048, 1024),
+                nn.ReLU(),
+                nn.Linear(1024, 512),
+                nn.ReLU(),
+                nn.Linear(512, self.output_dim),
             )
 
         self.log_z = nn.Parameter(torch.tensor(0.0))

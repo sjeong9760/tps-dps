@@ -56,13 +56,13 @@ class Metric:
             psi_diff, phi_diff = alanine_diff(position, target_position)
             hit = psi_diff.square() + phi_diff.square() < 0.75**2
 
-        elif self.molecule == "chignolin":
-            tic1_diff, tic2_diff = chignolin_tic_diff(position, target_position)
-            hit = tic1_diff.square() + tic2_diff.square() < 0.75**2
-
         elif self.molecule == "poly":
             handed = poly_handed(position)
             hit = handed > 0
+
+        else:
+            tic1_diff, tic2_diff = tic_diff(self.molecule, position, target_position)
+            hit = tic1_diff.square() + tic2_diff.square() < 0.75**2
 
         hit = hit.squeeze()
         thp = hit.sum().float() / len(hit)
