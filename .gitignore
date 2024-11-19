@@ -1,6 +1,9 @@
+*.zip
+
 openmmforcefields/
 **/__pycache__/
 .ipynb_checkpoints/
+*/archive/*
 
 scripts/
 paths/

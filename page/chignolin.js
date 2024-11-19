@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_chignolin = new NGL.Stage("viewport-chignolin");
   stage_chignolin.setParameters({ backgroundColor: "white" });
   stage_chignolin
-    .loadFile("./page/data/chignolin-path.gro", {
+    .loadFile("./page/data/chignolin/chignolin-path.gro", {
       defaultRepresentation: true,
       asTrajectory: true,
     })
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_chignolin_initial = new NGL.Stage("viewport-chignolin-initial");
   stage_chignolin_initial.setParameters({ backgroundColor: "white" });
-  stage_chignolin_initial.loadFile("./page/data/chignolin-unfolded.pdb", {
+  stage_chignolin_initial.loadFile("./page/data/chignolin/chignolin-unfolded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_chignolin_target = new NGL.Stage("viewport-chignolin-target");
   stage_chignolin_target.setParameters({ backgroundColor: "white" });
-  stage_chignolin_target.loadFile("./page/data/chignolin-folded.pdb", {
+  stage_chignolin_target.loadFile("./page/data/chignolin/chignolin-folded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {

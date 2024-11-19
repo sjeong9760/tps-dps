@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_poly = new NGL.Stage("viewport-poly");
   stage_poly.setParameters({ backgroundColor: "white" });
   stage_poly
-    .loadFile("./page/data/poly-path.gro", {
+    .loadFile("./page/data/poly/poly-path.gro", {
       defaultRepresentation: true,
       asTrajectory: true,
     })
@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_poly_initial = new NGL.Stage("viewport-poly-initial");
   stage_poly_initial.setParameters({ backgroundColor: "white" });
-  stage_poly_initial.loadFile("./page/data/poly-pp2.pdb", {
+  stage_poly_initial.loadFile("./page/data/poly/poly-pp2.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_poly_target = new NGL.Stage("viewport-poly-target");
   stage_poly_target.setParameters({ backgroundColor: "white" });
-  stage_poly_target.loadFile("./page/data/poly-pp1.pdb", {
+  stage_poly_target.loadFile("./page/data/poly/poly-pp1.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
