@@ -1,4 +1,5 @@
 *.zip
+*.h5
 
 openmmforcefields/
 **/__pycache__/
