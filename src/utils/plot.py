@@ -161,7 +161,31 @@ class Plot:
             plt.xlabel("\u03A6", fontsize=35, fontweight="medium")
             plt.ylabel("\u03A8", fontsize=35, fontweight="medium")
 
-        elif self.molecule in ["chignolin"]:
+        elif self.molecule == "poly":
+            fig = plt.figure(figsize=(20, 5))
+            ax = fig.add_subplot(111)
+            plt.ylim([-1, 1])
+
+            cm = plt.get_cmap("gist_rainbow")
+            ax.set_prop_cycle(
+                color=[cm(1.0 * i / len(positions)) for i in range(len(positions))]
+            )
+
+            for position in positions:
+                handed = poly_handed(position)
+                handed = handed.detach().cpu().numpy()
+                ax.plot(
+                    handed,
+                    marker="o",
+                    linestyle="None",
+                    markersize=2,
+                    alpha=1.0,
+                )
+
+            plt.xlabel("Time (fs)", fontsize=24, fontweight="medium")
+            plt.ylabel("Handedness", fontsize=24, fontweight="medium")
+
+        else:
             fig = plt.figure(figsize=(7, 7))
             ax = fig.add_subplot(111)
 
@@ -229,30 +253,6 @@ class Plot:
 
             plt.xlim(xs.min(), xs.max())
             plt.ylim(ys.min(), ys.max())
-
-        elif self.molecule == "poly":
-            fig = plt.figure(figsize=(20, 5))
-            ax = fig.add_subplot(111)
-            plt.ylim([-1, 1])
-
-            cm = plt.get_cmap("gist_rainbow")
-            ax.set_prop_cycle(
-                color=[cm(1.0 * i / len(positions)) for i in range(len(positions))]
-            )
-
-            for position in positions:
-                handed = poly_handed(position)
-                handed = handed.detach().cpu().numpy()
-                ax.plot(
-                    handed,
-                    marker="o",
-                    linestyle="None",
-                    markersize=2,
-                    alpha=1.0,
-                )
-
-            plt.xlabel("Time (fs)", fontsize=24, fontweight="medium")
-            plt.ylabel("Handedness", fontsize=24, fontweight="medium")
 
         plt.tick_params(
             left=False,

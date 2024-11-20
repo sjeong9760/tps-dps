@@ -193,7 +193,7 @@ SEQRES   4 A   47  VAL GLU LYS HIS LEU ALA LYS ALA
 HELIX    1   1 SER A  132  ASN A  143  1                                  12    
 HELIX    2   2 ASP A  145  ILE A  149  5                                   5    
 HELIX    3   3 THR A  159  ALA A  170  1                                  12    
-CRYST1   56.912   56.912   56.912  90.00  90.00  90.00 P 1           1
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1          
 ORIGX1      1.000000  0.000000  0.000000        0.00000                         
 ORIGX2      0.000000  1.000000  0.000000        0.00000                         
 ORIGX3      0.000000  0.000000  1.000000        0.00000                         

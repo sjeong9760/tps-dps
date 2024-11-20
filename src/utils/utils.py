@@ -70,13 +70,13 @@ def alanine_diff(position, target_position):
     return psi_diff, phi_diff
 
 
-def chignolin_tic_diff(position, target_position):
-    tica_model = joblib.load("./data/chignolin/tica_model.pkl")
-    feat = coor.featurizer("./data/chignolin/unfolded.pdb")
+def tic_diff(molecule, position, target_position):
+    tica_model = joblib.load(f"./data/{molecule}/tica_model.pkl")
+    feat = coor.featurizer(f"./data/{molecule}/folded.pdb")
     feat.add_backbone_torsions(cossin=True)
     traj = md.Trajectory(
         target_position.cpu().numpy(),
-        md.load("./data/chignolin/unfolded.pdb").topology,
+        md.load(f"./data/{molecule}/folded.pdb").topology,
     )
     feature = feat.transform(traj)
     tica_target = tica_model.transform(feature)
@@ -84,7 +84,7 @@ def chignolin_tic_diff(position, target_position):
 
     traj = md.Trajectory(
         position.cpu().numpy(),
-        md.load("./data/chignolin/unfolded.pdb").topology,
+        md.load(f"./data/{molecule}/folded.pdb").topology,
     )
     feature = feat.transform(traj)
     tica = tica_model.transform(feature)
