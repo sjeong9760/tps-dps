@@ -39,6 +39,7 @@ class MDs:
             dtype=torch.float,
             device=args.device,
         )
+        print(self.std)
         self.m = torch.tensor(
             md.m,
             dtype=torch.float,

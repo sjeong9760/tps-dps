@@ -69,3 +69,7 @@ class Log:
         self.logger.info(f"rmsd: {metrics['rmsd']} ± {metrics['rmsd_std']}")
         self.logger.info(f"thp: {metrics['thp']}")
         self.logger.info(f"etp: {metrics['etp']} ± {metrics['etp_std']}")
+        if metrics["etp"] is not None:
+            self.logger.info(f"etp: {metrics['etp']} ± {metrics['etp_std']}")
+        else:
+            self.logger.info("etp: None")

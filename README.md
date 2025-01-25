@@ -1,34 +1,13 @@
-Please refer to our [Project Page](https://anonymous.4open.science/w/tps-dps-0941/)
+Please refer to our [Project Page](https://kiyoung98.github.io/tps-dps/)
 
 # TPS-DPS: Transition Path Sampling with Improved Off-Policy Training of Diffusion Path Samplers
 
 This repository contains the code and instructions to reproduce the results of the paper.
 
 ## Installation
-
-1. First, create a new Conda environment:
-    ```
-    conda create -n tps-dps python=3.9
-    ```
-
-2. Activate the newly created environment:
-    ```
-    conda activate tps-dps
-    ```
-
-4. Install the openmmtools for Molecular Dynamics (MD) simulation using the following commands:
-    ```
-    conda install -c conda-forge openmmtools
-    ```
-
-5. Install the openmmforcefields for forcefields of Polyproline Helix and Chignolin using the following commands:
-    ```
-    git clone https://github.com/openmm/openmmforcefields.git
-    ```
-6. Install another packages using the following commands:
-    ```
-    pip install torch tqdm wandb mdtraj matplotlib joblib pyemma
-    ```
+```
+bash install.sh
+```
 
 ## Reproduce
 
