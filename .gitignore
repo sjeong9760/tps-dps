@@ -1,11 +1,8 @@
-*.zip
-*.h5
-
-openmmforcefields/
+.vscode/
 **/__pycache__/
 .ipynb_checkpoints/
-*/archive/*
 
-scripts/
+notebook/
 paths/
 results/
+synthetic/
