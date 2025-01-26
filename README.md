@@ -1,5 +1,6 @@
 # Transition Path Sampling with Diffusion Path Samplers
 [![arXiv](https://img.shields.io/badge/arXiv-2405.19961-84cc16)](https://arxiv.org/abs/2405.19961)
+This repository contains the code to reproduce the results of the paper ["Transition Path Sampling with Improved Off-Policy Training of Diffusion Path Samplers"](https://arxiv.org/abs/2405.19961) (accepted by ICLR 2025)
 
 3D videos of transition paths from our diffusion path sampler can be found in [project page](https://kiyoung98.github.io/tps-dps/)
 
