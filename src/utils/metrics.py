@@ -34,13 +34,13 @@ class Metric:
             self.target_position[:, self.heavy_atoms],
         )
         thp, hit = self.thp(final_position, self.target_position)
-        etp, etp_std = self.etp(hit, potentials)
+        ets, ets_std = self.ets(hit, potentials)
         metrics = {
             "rmsd": 10 * rmsd,
             "thp": 100 * thp,
-            "etp": etp,
+            "ets": ets,
             "rmsd_std": 10 * rmsd_std,
-            "etp_std": etp_std,
+            "ets_std": ets_std,
         }
         return metrics
 
@@ -55,11 +55,6 @@ class Metric:
         if self.molecule == "aldp":
             psi_diff, phi_diff = aldp_diff(position, target_position)
             hit = psi_diff.square() + phi_diff.square() < 0.75**2
-
-        elif self.molecule == "poly":
-            handed = poly_handed(position)
-            hit = handed > 0
-
         else:
             tic1_diff, tic2_diff = tic_diff(self.molecule, position, target_position)
             hit = tic1_diff.square() + tic2_diff.square() < 0.75**2
@@ -69,16 +64,16 @@ class Metric:
 
         return thp.item(), hit
 
-    def etp(self, hit, potentials):
-        etps = []
+    def ets(self, hit, potentials):
+        etss = []
         for i, hit_idx in enumerate(hit):
             if hit_idx:
-                etp = potentials[i].max(0)[0]
-                etps.append(etp)
+                ets = potentials[i].max(0)[0]
+                etss.append(ets)
 
-        if len(etps) > 0:
-            etps = torch.tensor(etps)
-            etp, std_etp = etps.mean().item(), etps.std().item()
-            return etp, std_etp
+        if len(etss) > 0:
+            etss = torch.tensor(etss)
+            ets, std_ets = etss.mean().item(), etss.std().item()
+            return ets, std_ets
         else:
             return None, None

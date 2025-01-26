@@ -1,2 +1,1 @@
-python src/eval.py \
-    --molecule aldp
+python src/eval.py

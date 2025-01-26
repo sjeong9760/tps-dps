@@ -93,25 +93,3 @@ def tic_diff(molecule, position, target_position):
     tic1_diff = abs(tica[:, 0] - tica_target[:, 0])
     tic2_diff = abs(tica[:, 1] - tica_target[:, 1])
     return tic1_diff, tic2_diff
-
-
-def poly_handed(position):
-    # ids = [6, 16, 18, 20, 30, 32, 34, 44, 46]
-    ids = [16, 18, 30, 44]
-    h = 0
-
-    for i in range(len(ids) - 3):
-        c1 = position[:, ids[i]]
-        c2 = position[:, ids[i + 1]]
-        c3 = position[:, ids[i + 2]]
-        c4 = position[:, ids[i + 3]]
-
-        ab = c2 - c1
-        cd = c4 - c3
-        ef = (c3 + c4) / 2 - (c1 + c2) / 2
-        h_i = ef * torch.cross(ab, cd, dim=-1)
-        h_i = h_i.sum(dim=-1) / (
-            torch.norm(ab, dim=-1) * torch.norm(cd, dim=-1) * torch.norm(ef, dim=-1)
-        )
-        h += h_i
-    return h

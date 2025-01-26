@@ -25,7 +25,7 @@ class Log:
         else:
             log_file = "eval.log"
         log_file = f"{self.save_dir}/{log_file}"
-        file_handler = logging.FileHandler(log_file, mode="w")
+        file_handler = logging.FileHandler(log_file, mode="w", encoding="utf-8")
         file_handler.setLevel(logging.INFO)
         file_formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
         file_handler.setFormatter(file_formatter)
@@ -70,7 +70,7 @@ class Log:
         self.logger.info(f"log_z: {policy.log_z.item()}")
         self.logger.info(f"rmsd: {metrics['rmsd']} ± {metrics['rmsd_std']}")
         self.logger.info(f"thp: {metrics['thp']}")
-        if metrics["etp"] is not None:
-            self.logger.info(f"etp: {metrics['etp']} ± {metrics['etp_std']}")
+        if metrics["ets"] is not None:
+            self.logger.info(f"ets: {metrics['ets']} ± {metrics['ets_std']}")
         else:
-            self.logger.info("etp: None")
+            self.logger.info("ets: None")
