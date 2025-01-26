@@ -12,10 +12,10 @@ conda env create -f environment.yml
 ```
 
 ## Quickstart:
-We provide independent codes `double-well.ipynb` for training diffusion path sampler to sample transition paths of a synthetic double-well system. 
+We provide independent code `double-well.ipynb` for training diffusion path sampler to sample transition paths of a synthetic double-well system. 
 
 ## Steps to reproduce the results
-We provide instructions to reproduce the results of aldp and train a new model. You can replace aldp with fast folding proteins: chignolin, trpcage, bba, bbl.
+We provide instructions to reproduce the results of aldp and train a new model. You can replace aldp with fast-folding proteins: chignolin, trpcage, bba, and bbl.
 
 - **Sampling**: Run the following command to sample transition paths.
     ```
