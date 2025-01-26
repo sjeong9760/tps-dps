@@ -1,4 +1,3 @@
-import os
 import sys
 import torch
 import logging
@@ -25,7 +24,7 @@ class Log:
             log_file = "train.log"
         else:
             log_file = "eval.log"
-        log_file = os.path.join(args.save_dir, log_file)
+        log_file = f"{self.save_dir}/{log_file}"
         file_handler = logging.FileHandler(log_file, mode="w")
         file_handler.setLevel(logging.INFO)
         file_formatter = logging.Formatter("%(asctime)s %(levelname)s: %(message)s")
@@ -59,7 +58,10 @@ class Log:
 
         if rollout % 10 == 0:
             self.plot()
-            torch.save(policy.state_dict(), f"{self.save_dir}/policies/{rollout}.pt")
+            torch.save(
+                policy.state_dict(),
+                f"{self.save_dir}/policies/{rollout}.pt",
+            )
 
         if self.rmsd > metrics["rmsd"]:
             self.rmsd = metrics["rmsd"]
@@ -68,7 +70,6 @@ class Log:
         self.logger.info(f"log_z: {policy.log_z.item()}")
         self.logger.info(f"rmsd: {metrics['rmsd']} ± {metrics['rmsd_std']}")
         self.logger.info(f"thp: {metrics['thp']}")
-        self.logger.info(f"etp: {metrics['etp']} ± {metrics['etp_std']}")
         if metrics["etp"] is not None:
             self.logger.info(f"etp: {metrics['etp']} ± {metrics['etp_std']}")
         else:

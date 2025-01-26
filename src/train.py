@@ -8,15 +8,15 @@ from dps import DiffusionPathSampler
 parser = argparse.ArgumentParser()
 
 # System Config
-parser.add_argument("--seed", default=0, type=int)
+parser.add_argument("--seed", default=2, type=int)
 parser.add_argument("--device", default="cuda", type=str)
 parser.add_argument("--molecule", default="aldp", type=str)
 
 # Logger Config
-parser.add_argument("--save_dir", default="results/aldp", type=str)
+parser.add_argument("--save_dir", default="results", type=str)
 
 # Policy Config
-parser.add_argument("--bias", default="pot", type=str)
+parser.add_argument("--bias", default="force", type=str)
 
 # Sampling Config
 parser.add_argument("--start_state", default="c5", type=str)
@@ -55,6 +55,7 @@ args = parser.parse_args()
 
 if __name__ == "__main__":
     args.training = True
+    args.save_dir = f"{args.save_dir}/{args.molecule}/{args.bias}"
     for name in ["policies", "positions"]:
         if not os.path.exists(f"{args.save_dir}/{name}"):
             os.makedirs(f"{args.save_dir}/{name}")

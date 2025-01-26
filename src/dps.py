@@ -48,16 +48,10 @@ class DiffusionPathSampler:
             self.replay.add((positions, forces, log_tm))
 
         for i in range(args.num_samples):
-            if final_idx is not None:
-                np.save(
-                    f"{args.save_dir}/positions/{i}.npy",
-                    positions[i][: final_idx[i] + 1].cpu().numpy(),
-                )
-            else:
-                np.save(
-                    f"{args.save_dir}/positions/{i}.npy",
-                    positions[i].cpu().numpy(),
-                )
+            np.save(
+                f"{args.save_dir}/positions/{i}.npy",
+                positions[i][: final_idx[i] + 1].cpu().numpy(),
+            )
 
     def train(self, args, mds):
         optimizer = torch.optim.Adam(
@@ -173,13 +167,13 @@ class TargetMeasure:
             positions.size(0), device=positions.device, dtype=torch.long
         )
         for i in range(positions.size(0)):
-            log_ri[i], final_idx[i] = self.rmsd(
+            log_ri[i], final_idx[i] = self.rbf(
                 positions[i],
                 target_position,
             ).max(0)
         return log_ri, final_idx
 
-    def rmsd(self, positions, target_position):
+    def rbf(self, positions, target_position):
         R, t = kabsch(positions, target_position)
         positions = torch.matmul(positions, R.transpose(-2, -1)) + t
         log_ri = (

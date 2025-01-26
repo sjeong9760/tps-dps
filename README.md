@@ -25,7 +25,6 @@ bash install.sh
 
 - **Evaluation**: Run the following command to evaluate sampled paths
     ```
-    python synthetic/eval.py 
     python src/eval.py --molecule alanine
     python src/eval.py --molecule poly --start_state pp2 --end_state pp1 --save_dir paths/poly/scale
     python src/eval.py --molecule chignolin --start_state unfolded --end_state folded --save_dir paths/chignolin/scale 
