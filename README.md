@@ -11,7 +11,7 @@ We provide a script for installing packages (assuming CUDA 11.x).
 conda env create -f environment.yml
 ```
 
-## Quickstart:
+## Quickstart
 We provide independent code `double-well.ipynb` for training diffusion path sampler to sample transition paths of a synthetic double-well system. 
 
 ## Steps to reproduce the results
