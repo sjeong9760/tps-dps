@@ -10,10 +10,10 @@ parser = argparse.ArgumentParser()
 # System Config
 parser.add_argument("--seed", default=0, type=int)
 parser.add_argument("--device", default="cuda", type=str)
-parser.add_argument("--molecule", default="alanine", type=str)
+parser.add_argument("--molecule", default="aldp", type=str)
 
 # Logger Config
-parser.add_argument("--save_dir", default="results/alanine", type=str)
+parser.add_argument("--save_dir", default="results/aldp", type=str)
 
 # Policy Config
 parser.add_argument("--bias", default="pot", type=str)

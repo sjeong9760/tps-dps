@@ -10,8 +10,8 @@ parser = argparse.ArgumentParser()
 # System Config
 parser.add_argument("--model_path", type=str)
 parser.add_argument("--device", default="cuda", type=str)
-parser.add_argument("--save_dir", default="paths/alanine/pot", type=str)
-parser.add_argument("--molecule", default="alanine", type=str)
+parser.add_argument("--save_dir", default="paths/aldp/pot", type=str)
+parser.add_argument("--molecule", default="aldp", type=str)
 
 # Policy Config
 parser.add_argument("--bias", default="pot", type=str)

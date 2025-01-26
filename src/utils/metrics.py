@@ -52,8 +52,8 @@ class Metric:
         return rmsd, std_rmsd
 
     def thp(self, position, target_position):
-        if self.molecule == "alanine":
-            psi_diff, phi_diff = alanine_diff(position, target_position)
+        if self.molecule == "aldp":
+            psi_diff, phi_diff = aldp_diff(position, target_position)
             hit = psi_diff.square() + phi_diff.square() < 0.75**2
 
         elif self.molecule == "poly":

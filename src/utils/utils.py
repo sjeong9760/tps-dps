@@ -53,7 +53,7 @@ def compute_dihedral(positions):
     return torch.atan2(y, x)
 
 
-def alanine_diff(position, target_position):
+def aldp_diff(position, target_position):
     angle_2 = torch.tensor([1, 6, 8, 14], dtype=torch.long, device=position.device)
     angle_1 = torch.tensor([6, 8, 14, 16], dtype=torch.long, device=position.device)
     target_psi = compute_dihedral(target_position[:, angle_1])

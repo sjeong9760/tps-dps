@@ -34,7 +34,7 @@ class Plot:
         circle_size = 1200
         saddle_size = 2400
 
-        if self.molecule == "alanine":
+        if self.molecule == "aldp":
             angle_1 = [6, 8, 14, 16]
             angle_2 = [1, 6, 8, 14]
 
@@ -45,7 +45,7 @@ class Plot:
             plt.xlim([-np.pi, np.pi])
             plt.ylim([-np.pi, np.pi])
 
-            with open("./data/alanine/landscape.dat") as f:
+            with open("./data/aldp/landscape.dat") as f:
                 lines = f.readlines()
 
             dims = [90, 90]

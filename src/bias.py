@@ -20,7 +20,7 @@ class BiasForce(nn.Module):
 
         self.input_dim = mds.num_particles * (3 + 1)
 
-        if args.molecule == "alanine":
+        if args.molecule == "aldp":
             self.mlp = nn.Sequential(
                 nn.Linear(self.input_dim, 128),
                 nn.ReLU(),
