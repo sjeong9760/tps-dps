@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_bbl = new NGL.Stage("viewport-bbl");
   stage_bbl.setParameters({ backgroundColor: "white" });
   stage_bbl
-    .loadFile("./page/data/bbl/bbl.gro", {
+    .loadFile("data/bbl/path.gro", {
       defaultRepresentation: true,
       asTrajectory: true,
     })
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_bbl_initial = new NGL.Stage("viewport-bbl-initial");
   stage_bbl_initial.setParameters({ backgroundColor: "white" });
-  stage_bbl_initial.loadFile("./page/data/bbl/unfolded.pdb", {
+  stage_bbl_initial.loadFile("data/bbl/unfolded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_bbl_target = new NGL.Stage("viewport-bbl-target");
   stage_bbl_target.setParameters({ backgroundColor: "white" });
-  stage_bbl_target.loadFile("./page/data/bbl/folded.pdb", {
+  stage_bbl_target.loadFile("data/bbl/folded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function () {
       colorScheme: "protein"
     });
   });
-  
+
   var toggleSpin_bbl_target = document.getElementById("toggleSpin-bbl-target")
   var isSpinning_bbl_target = false;
   toggleSpin_bbl_target.addEventListener("click", function () {

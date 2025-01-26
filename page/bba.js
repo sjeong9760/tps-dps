@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_bba = new NGL.Stage("viewport-bba");
   stage_bba.setParameters({ backgroundColor: "white" });
   stage_bba
-    .loadFile("./page/data/bba/bba.gro", {
+    .loadFile("data/bba/path.gro", {
       defaultRepresentation: true,
       asTrajectory: true,
     })
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_bba_initial = new NGL.Stage("viewport-bba-initial");
   stage_bba_initial.setParameters({ backgroundColor: "white" });
-  stage_bba_initial.loadFile("./page/data/bba/unfolded.pdb", {
+  stage_bba_initial.loadFile("data/bba/unfolded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_bba_target = new NGL.Stage("viewport-bba-target");
   stage_bba_target.setParameters({ backgroundColor: "white" });
-  stage_bba_target.loadFile("./page/data/bba/folded.pdb", {
+  stage_bba_target.loadFile("data/bba/folded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
       radius: 0.15,
     });
   });
-  
+
   var toggleSpin_bba_target = document.getElementById("toggleSpin-bba-target")
   var isSpinning_bba_target = false;
   toggleSpin_bba_target.addEventListener("click", function () {

@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_trpcage = new NGL.Stage("viewport-trpcage");
   stage_trpcage.setParameters({ backgroundColor: "white" });
   stage_trpcage
-    .loadFile("./page/data/trpcage/trpcage.gro", {
+    .loadFile("data/trpcage/path.gro", {
       defaultRepresentation: true,
       asTrajectory: true,
     })
@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_trpcage_initial = new NGL.Stage("viewport-trpcage-initial");
   stage_trpcage_initial.setParameters({ backgroundColor: "white" });
-  stage_trpcage_initial.loadFile("./page/data/trpcage/unfolded.pdb", {
+  stage_trpcage_initial.loadFile("data/trpcage/unfolded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_trpcage_target = new NGL.Stage("viewport-trpcage-target");
   stage_trpcage_target.setParameters({ backgroundColor: "white" });
-  stage_trpcage_target.loadFile("./page/data/trpcage/folded.pdb", {
+  stage_trpcage_target.loadFile("data/trpcage/folded.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
   }).then(function (comp) {
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
       radius: 0.15,
     });
   });
-  
+
   var toggleSpin_trpcage_target = document.getElementById("toggleSpin-trpcage-target")
   var isSpinning_trpcage_target = false;
   toggleSpin_trpcage_target.addEventListener("click", function () {

@@ -2,16 +2,22 @@ document.addEventListener("DOMContentLoaded", function () {
   stage_alanine = new NGL.Stage("viewport-alanine");
   stage_alanine.setParameters({ backgroundColor: "white" });
   stage_alanine
-    .loadFile("./page/data/alanine/alanine-path.gro", {
+    .loadFile("data/alanine/path.gro", {
       defaultRepresentation: true,
       asTrajectory: true,
     })
     .then(function (comp) {
       comp.setName("simulation-alanine");
+      comp.addRepresentation("ball+stick", {
+        aspectRatio: 1.0,
+        radius: 0.15,
+      });
       comp.addTrajectory();
     });
 
-  var toggleSpin_alanine = document.getElementById("toggleSpin-alanine");
+  var toggleSpin_alanine = document.getElementById(
+    "toggleSpin-alanine"
+  );
   var isSpinning_alanine = false;
   toggleSpin_alanine.addEventListener("click", function () {
     if (!isSpinning_alanine) {
@@ -23,18 +29,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  var toggleRunMDs_alanine = document.getElementById("toggleRunMDs-alanine");
+  var toggleRunMDs_alanine = document.getElementById(
+    "toggleRunMDs-alanine"
+  );
   var isRunning_alanine = false;
   toggleRunMDs_alanine.addEventListener("click", function () {
-    var trajComp_alanine =
-      stage_alanine.getComponentsByName("simulation-alanine").list[0]
-        .trajList[0];
-    var player_alanine = new NGL.TrajectoryPlayer(trajComp_alanine.trajectory, {
-      step: 40,
-      mode: "once",
-      interpolateType: "spline",
-      timeout: 200,
-    });
+    var trajComp_alanine = stage_alanine.getComponentsByName(
+      "simulation-alanine"
+    ).list[0].trajList[0];
+    var player_alanine = new NGL.TrajectoryPlayer(
+      trajComp_alanine.trajectory,
+      { step: 80, mode: "once", interpolateType: "spline", timeout: 200 }
+    );
     if (!isRunning_alanine) {
       player_alanine.play();
       isRunning_alanine = true;
@@ -47,10 +53,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_alanine_initial = new NGL.Stage("viewport-alanine-initial");
   stage_alanine_initial.setParameters({ backgroundColor: "white" });
-  stage_alanine_initial.loadFile("./page/data/alanine/alanine-c5.pdb", {
+  stage_alanine_initial.loadFile("data/alanine/c5.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
+  }).then(function (comp) {
+    comp.addRepresentation("ball+stick", {
+      aspectRatio: 1.0,
+      radius: 0.15,
+    });
   });
+
   var toggleSpin_alanine_initial = document.getElementById("toggleSpin-alanine-inital");
   var isSpinning_alanine_initial = false;
   toggleSpin_alanine_initial.addEventListener("click", function () {
@@ -65,10 +77,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   stage_alanine_target = new NGL.Stage("viewport-alanine-target");
   stage_alanine_target.setParameters({ backgroundColor: "white" });
-  stage_alanine_target.loadFile("./page/data/alanine/alanine-c7ax.pdb", {
+  stage_alanine_target.loadFile("data/alanine/c7ax.pdb", {
     defaultRepresentation: true,
     asTrajectory: true,
+  }).then(function (comp) {
+    comp.addRepresentation("ball+stick", {
+      aspectRatio: 1.0,
+      radius: 0.15,
+    });
   });
+
   var toggleSpin_alanine_target = document.getElementById("toggleSpin-alanine-target")
   var isSpinning_alanine_target = false;
   toggleSpin_alanine_target.addEventListener("click", function () {
