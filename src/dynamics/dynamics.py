@@ -4,9 +4,9 @@
 import openmm as mm
 from openmm import app
 import openmm.unit as unit
+from openmmtools.integrators import VVVRIntegrator
 
 from .base import BaseDynamics
-from openmmtools.integrators import VVVRIntegrator
 
 
 class Aldp(BaseDynamics):
@@ -24,26 +24,20 @@ class Aldp(BaseDynamics):
             ewaldErrorTolerance=0.0005,
         )
         external_force = mm.CustomExternalForce("-(fx*x+fy*y+fz*z)")
-
-        # creating the parameters
         external_force.addPerParticleParameter("fx")
         external_force.addPerParticleParameter("fy")
         external_force.addPerParticleParameter("fz")
         system.addForce(external_force)
         for i in range(len(pdb.positions)):
             external_force.addParticle(i, [0, 0, 0])
-
         integrator = VVVRIntegrator(
             self.temperature,
             self.friction,
             self.timestep,
         )
-
         integrator.setConstraintTolerance(0.00001)
-
         simulation = app.Simulation(pdb.topology, system, integrator)
         simulation.context.setPositions(pdb.positions)
-
         return pdb, integrator, simulation, external_force
 
 
@@ -64,26 +58,20 @@ class Chignolin(BaseDynamics):
             ewaldErrorTolerance=0.0005,
         )
         external_force = mm.CustomExternalForce("-(fx*x+fy*y+fz*z)")
-
-        # creating the parameters
         external_force.addPerParticleParameter("fx")
         external_force.addPerParticleParameter("fy")
         external_force.addPerParticleParameter("fz")
         system.addForce(external_force)
         for i in range(len(pdb.positions)):
             external_force.addParticle(i, [0, 0, 0])
-
         integrator = VVVRIntegrator(
             self.temperature,
             self.friction,
             self.timestep,
         )
-
         integrator.setConstraintTolerance(0.00001)
-
         simulation = app.Simulation(pdb.topology, system, integrator)
         simulation.context.setPositions(pdb.positions)
-
         return pdb, integrator, simulation, external_force
 
 
@@ -104,26 +92,20 @@ class Trpcage(BaseDynamics):
             ewaldErrorTolerance=0.0005,
         )
         external_force = mm.CustomExternalForce("-(fx*x+fy*y+fz*z)")
-
-        # creating the parameters
         external_force.addPerParticleParameter("fx")
         external_force.addPerParticleParameter("fy")
         external_force.addPerParticleParameter("fz")
         system.addForce(external_force)
         for i in range(len(pdb.positions)):
             external_force.addParticle(i, [0, 0, 0])
-
         integrator = VVVRIntegrator(
             self.temperature,
             self.friction,
             self.timestep,
         )
-
         integrator.setConstraintTolerance(0.00001)
-
         simulation = app.Simulation(pdb.topology, system, integrator)
         simulation.context.setPositions(pdb.positions)
-
         return pdb, integrator, simulation, external_force
 
 
@@ -144,26 +126,20 @@ class Bba(BaseDynamics):
             ewaldErrorTolerance=0.0005,
         )
         external_force = mm.CustomExternalForce("-(fx*x+fy*y+fz*z)")
-
-        # creating the parameters
         external_force.addPerParticleParameter("fx")
         external_force.addPerParticleParameter("fy")
         external_force.addPerParticleParameter("fz")
         system.addForce(external_force)
         for i in range(len(pdb.positions)):
             external_force.addParticle(i, [0, 0, 0])
-
         integrator = VVVRIntegrator(
             self.temperature,
             self.friction,
             self.timestep,
         )
-
         integrator.setConstraintTolerance(0.00001)
-
         simulation = app.Simulation(pdb.topology, system, integrator)
         simulation.context.setPositions(pdb.positions)
-
         return pdb, integrator, simulation, external_force
 
 
@@ -184,26 +160,20 @@ class Bbl(BaseDynamics):
             ewaldErrorTolerance=0.0005,
         )
         external_force = mm.CustomExternalForce("-(fx*x+fy*y+fz*z)")
-
-        # creating the parameters
         external_force.addPerParticleParameter("fx")
         external_force.addPerParticleParameter("fy")
         external_force.addPerParticleParameter("fz")
         system.addForce(external_force)
         for i in range(len(pdb.positions)):
             external_force.addParticle(i, [0, 0, 0])
-
         integrator = VVVRIntegrator(
             self.temperature,
             self.friction,
             self.timestep,
         )
-
         integrator.setConstraintTolerance(0.00001)
-
         simulation = app.Simulation(pdb.topology, system, integrator)
         simulation.context.setPositions(pdb.positions)
-
         return pdb, integrator, simulation, external_force
 
 
@@ -225,24 +195,18 @@ class Poly(BaseDynamics):
             ewaldErrorTolerance=0.0005,
         )
         external_force = mm.CustomExternalForce("-(fx*x+fy*y+fz*z)")
-
-        # creating the parameters
         external_force.addPerParticleParameter("fx")
         external_force.addPerParticleParameter("fy")
         external_force.addPerParticleParameter("fz")
         system.addForce(external_force)
         for i in range(len(pdb.positions)):
             external_force.addParticle(i, [0, 0, 0])
-
         integrator = VVVRIntegrator(
             self.temperature,
             self.friction,
             self.timestep,
         )
-
         integrator.setConstraintTolerance(0.00001)
-
         simulation = app.Simulation(pdb.topology, system, integrator)
         simulation.context.setPositions(pdb.positions)
-
         return pdb, integrator, simulation, external_force

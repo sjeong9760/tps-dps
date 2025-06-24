@@ -1,10 +1,11 @@
-import torch
 import argparse
+import torch
+from torch.distributions import Normal
 
 from utils.plot import Plot
-from dynamics import dynamics
 from utils.metrics import Metric
-from torch.distributions import Normal
+from dynamics import dynamics
+
 
 parser = argparse.ArgumentParser()
 
@@ -28,7 +29,6 @@ class Eval:
     def __init__(self, args):
         self.get_md_info(args)
         self.log_prob = Normal(0, self.std).log_prob
-
         self.plot = Plot(args, self)
         self.metric = Metric(args, self)
 
@@ -63,7 +63,6 @@ class Eval:
             f"THP: {log['thp']:.2f} "
             f"ETP: {log['etp']:.2f} ± {log['etp_std']:.2f}"
         )
-
         self.plot()
 
 

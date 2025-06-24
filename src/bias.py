@@ -1,14 +1,14 @@
 import torch
 from torch import nn
-from utils.utils import kabsch
 from torch.nn.functional import softplus
+
+from utils.utils import kabsch
 
 
 class BiasForce(nn.Module):
     def __init__(self, args, mds):
         super().__init__()
         self.bias = args.bias
-
         self.heavy_atoms = mds.heavy_atoms
         self.num_particles = mds.num_particles
         if self.bias == "force":
@@ -34,21 +34,6 @@ class BiasForce(nn.Module):
                 nn.ReLU(),
                 nn.Linear(128, self.output_dim),
             )
-        elif args.molecule == "poly":
-            self.mlp = nn.Sequential(
-                nn.Linear(self.input_dim, 256),
-                nn.ReLU(),
-                nn.Linear(256, 512),
-                nn.ReLU(),
-                nn.Linear(512, 1024),
-                nn.ReLU(),
-                nn.Linear(1024, 512),
-                nn.ReLU(),
-                nn.Linear(512, 256),
-                nn.ReLU(),
-                nn.Linear(256, self.output_dim),
-            )
-
         else:
             self.mlp = nn.Sequential(
                 nn.Linear(self.input_dim, 512),
@@ -65,19 +50,16 @@ class BiasForce(nn.Module):
             )
 
         self.log_z = nn.Parameter(torch.tensor(0.0))
-
         self.to(args.device)
 
     def forward(self, pos, target):
         R, t = kabsch(pos[:, self.heavy_atoms], target[:, self.heavy_atoms])
         if self.bias == "pot":
             pos.requires_grad = True
-        input = torch.matmul(pos, R.transpose(-2, -1)) + t
-
-        dist = torch.norm(input - target, dim=-1, keepdim=True)
-        input = torch.cat([input, dist], dim=-1)
-
-        out = self.mlp(input.reshape(-1, self.input_dim))
+        input_tensor = torch.matmul(pos, R.transpose(-2, -1)) + t
+        dist = torch.norm(input_tensor - target, dim=-1, keepdim=True)
+        input_tensor = torch.cat([input_tensor, dist], dim=-1)
+        out = self.mlp(input_tensor.reshape(-1, self.input_dim))
 
         if self.bias == "force":
             force = out.view(*pos.shape)

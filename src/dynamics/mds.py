@@ -1,8 +1,9 @@
 import torch
 from tqdm import tqdm
+from torch.distributions import Normal
+
 from dynamics import dynamics
 from utils.utils import kabsch
-from torch.distributions import Normal
 
 
 class MDs:
@@ -12,14 +13,10 @@ class MDs:
         self.end_state = args.end_state
         self.num_samples = args.num_samples
         self.start_state = args.start_state
-
         self.get_md_info(args)
         self.mds = self._init_mds(args)
         self.log_prob = Normal(0, self.std).log_prob
-
-        self.target_position = self.target_position - self.target_position[
-            :, self.heavy_atoms
-        ].mean(-2, keepdim=True)
+        self.target_position = self.target_position - self.target_position[:, self.heavy_atoms].mean(-2, keepdim=True)
         R, t = kabsch(
             self.start_position[:, self.heavy_atoms],
             self.target_position[:, self.heavy_atoms],
@@ -29,7 +26,7 @@ class MDs:
     def get_md_info(self, args):
         md = getattr(dynamics, self.molecule.title())(args, self.end_state)
         self.num_particles = md.num_particles
-        self.heavy_atoms = md.heavy_atoms
+        self.heavy_atoms = torch.from_numpy(md.heavy_atoms).to(self.device)
         self.energy_function = md.energy_function
         self.target_position = torch.tensor(
             md.position, dtype=torch.float, device=self.device
@@ -50,7 +47,6 @@ class MDs:
         for _ in tqdm(range(self.num_samples)):
             md = getattr(dynamics, self.molecule.title())(args, self.start_state)
             mds.append(md)
-
         self.start_position = torch.tensor(
             md.position, dtype=torch.float, device=self.device
         ).unsqueeze(0)
@@ -67,7 +63,6 @@ class MDs:
             position, force = self.mds[i].report()
             positions.append(position)
             forces.append(force)
-
         positions = torch.tensor(positions, dtype=torch.float, device=self.device)
         forces = torch.tensor(forces, dtype=torch.float, device=self.device)
         return positions, forces

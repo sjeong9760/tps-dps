@@ -1,8 +1,10 @@
 import os
-import torch
 import argparse
+import torch
+
 from dynamics.mds import MDs
 from dps import DiffusionPathSampler
+
 
 parser = argparse.ArgumentParser()
 
@@ -25,8 +27,8 @@ parser.add_argument("--num_samples", default=64, type=int)
 parser.add_argument("--temperature", default=300, type=float)
 parser.add_argument("--friction", default=0.001, type=float)
 
-
 args = parser.parse_args()
+
 
 if __name__ == "__main__":
     args.training = False
@@ -34,7 +36,6 @@ if __name__ == "__main__":
     for name in ["positions"]:
         if not os.path.exists(f"{args.save_dir}/{name}"):
             os.makedirs(f"{args.save_dir}/{name}")
-
     mds = MDs(args)
     agent = DiffusionPathSampler(args, mds)
     agent.policy.load_state_dict(torch.load(args.model_path))

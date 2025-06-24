@@ -1,6 +1,7 @@
 import torch
 import numpy as np
-from .utils import *
+
+from .utils import kabsch, aldp_diff, tic_diff
 
 
 class Metric:
@@ -11,7 +12,6 @@ class Metric:
         self.timestep = args.timestep
         self.friction = args.friction
         self.num_samples = args.num_samples
-
         self.m = mds.m
         self.std = mds.std
         self.log_prob = mds.log_prob
@@ -27,7 +27,6 @@ class Metric:
             positions.append(torch.from_numpy(position).to(self.device))
             forces.append(torch.from_numpy(force).to(self.device))
             potentials.append(torch.from_numpy(potential).to(self.device))
-
         final_position = torch.stack([position[-1] for position in positions])
         rmsd, rmsd_std = self.rmsd(
             final_position[:, self.heavy_atoms],
@@ -54,14 +53,12 @@ class Metric:
     def thp(self, position, target_position):
         if self.molecule == "aldp":
             psi_diff, phi_diff = aldp_diff(position, target_position)
-            hit = psi_diff.square() + phi_diff.square() < 0.75**2
+            hit = psi_diff.square() + phi_diff.square() < 0.75 ** 2
         else:
             tic1_diff, tic2_diff = tic_diff(self.molecule, position, target_position)
-            hit = tic1_diff.square() + tic2_diff.square() < 0.75**2
-
+            hit = tic1_diff.square() + tic2_diff.square() < 0.75 ** 2
         hit = hit.squeeze()
         thp = hit.sum().float() / len(hit)
-
         return thp.item(), hit
 
     def ets(self, hit, potentials):
@@ -70,7 +67,6 @@ class Metric:
             if hit_idx:
                 ets = potentials[i].max(0)[0]
                 etss.append(ets)
-
         if len(etss) > 0:
             etss = torch.tensor(etss)
             ets, std_ets = etss.mean().item(), etss.std().item()
