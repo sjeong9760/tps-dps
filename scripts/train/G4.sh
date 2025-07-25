@@ -1,0 +1,14 @@
+python src/train.py \
+    --molecule g4 \
+    --start_state 143d_Na \
+    --end_state 1kf1_Na \
+    --num_steps 5000 \
+    --sigma 0.5 \
+    --num_rollouts 100 \
+    --num_samples 4\
+    --batch_size 2 \
+    --bias scale \
+    --buffer_size 200 \
+    --end_temperature 300 \
+    --temperature 300 \
+    --date 250709_g4Na_300K

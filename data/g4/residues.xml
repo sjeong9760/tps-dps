@@ -1,0 +1,1081 @@
+  <Residues>
+    <Residue name="HOH">
+      <Atom name="O" type="tip3p-O" charge="-0.834"/>
+      <Atom name="H1" type="tip3p-H" charge="0.417"/>
+      <Atom name="H2" type="tip3p-H" charge="0.417"/>
+      <Bond from="O" to="H1"/>
+      <Bond from="O" to="H2"/>
+    </Residue>
+    <Residue name="DA">
+      <Atom charge="1.1659" name="P" type="DNA-P"/>
+      <Atom charge="-0.7761" name="OP1" type="DNA-O2"/>
+      <Atom charge="-0.7761" name="OP2" type="DNA-O2"/>
+      <Atom charge="-0.4954" name="O5'" type="DNA-OS"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.0431" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1838" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0268" name="N9" type="DNA-N*"/>
+      <Atom charge="0.1607" name="C8" type="DNA-C1"/>
+      <Atom charge="0.1877" name="H8" type="DNA-H5"/>
+      <Atom charge="-0.6175" name="N7" type="DNA-NB"/>
+      <Atom charge="0.0725" name="C5" type="DNA-CB"/>
+      <Atom charge="0.6897" name="C6" type="DNA-CA"/>
+      <Atom charge="-0.9123" name="N6" type="DNA-N2"/>
+      <Atom charge="0.4167" name="H61" type="DNA-H"/>
+      <Atom charge="0.4167" name="H62" type="DNA-H"/>
+      <Atom charge="-0.7624" name="N1" type="DNA-NC"/>
+      <Atom charge="0.5716" name="C2" type="DNA-CQ"/>
+      <Atom charge="0.0598" name="H2" type="DNA-H5"/>
+      <Atom charge="-0.7417" name="N3" type="DNA-NC"/>
+      <Atom charge="0.38" name="C4" type="DNA-CB"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.5232" name="O3'" type="DNA-OS"/>
+      <Bond from="P" to="OP1"/>
+      <Bond from="P" to="OP2"/>
+      <Bond from="P" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N9"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N9" to="C8"/>
+      <Bond from="N9" to="C4"/>
+      <Bond from="C8" to="H8"/>
+      <Bond from="C8" to="N7"/>
+      <Bond from="N7" to="C5"/>
+      <Bond from="C5" to="C6"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C6" to="N6"/>
+      <Bond from="C6" to="N1"/>
+      <Bond from="N6" to="H61"/>
+      <Bond from="N6" to="H62"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C2" to="H2"/>
+      <Bond from="C2" to="N3"/>
+      <Bond from="N3" to="C4"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <ExternalBond atomName="P"/>
+      <ExternalBond atomName="O3'"/>
+    </Residue>
+    <Residue name="DA3">
+      <Atom charge="1.1659" name="P" type="DNA-P"/>
+      <Atom charge="-0.7761" name="OP1" type="DNA-O2"/>
+      <Atom charge="-0.7761" name="OP2" type="DNA-O2"/>
+      <Atom charge="-0.4954" name="O5'" type="DNA-OS"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.0431" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1838" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0268" name="N9" type="DNA-N*"/>
+      <Atom charge="0.1607" name="C8" type="DNA-C1"/>
+      <Atom charge="0.1877" name="H8" type="DNA-H5"/>
+      <Atom charge="-0.6175" name="N7" type="DNA-NB"/>
+      <Atom charge="0.0725" name="C5" type="DNA-CB"/>
+      <Atom charge="0.6897" name="C6" type="DNA-CA"/>
+      <Atom charge="-0.9123" name="N6" type="DNA-N2"/>
+      <Atom charge="0.4167" name="H61" type="DNA-H"/>
+      <Atom charge="0.4167" name="H62" type="DNA-H"/>
+      <Atom charge="-0.7624" name="N1" type="DNA-NC"/>
+      <Atom charge="0.5716" name="C2" type="DNA-CQ"/>
+      <Atom charge="0.0598" name="H2" type="DNA-H5"/>
+      <Atom charge="-0.7417" name="N3" type="DNA-NC"/>
+      <Atom charge="0.38" name="C4" type="DNA-CB"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.6549" name="O3'" type="DNA-OH"/>
+      <Atom charge="0.4396" name="HO3'" type="DNA-HO"/>
+      <Bond from="P" to="OP1"/>
+      <Bond from="P" to="OP2"/>
+      <Bond from="P" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N9"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N9" to="C8"/>
+      <Bond from="N9" to="C4"/>
+      <Bond from="C8" to="H8"/>
+      <Bond from="C8" to="N7"/>
+      <Bond from="N7" to="C5"/>
+      <Bond from="C5" to="C6"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C6" to="N6"/>
+      <Bond from="C6" to="N1"/>
+      <Bond from="N6" to="H61"/>
+      <Bond from="N6" to="H62"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C2" to="H2"/>
+      <Bond from="C2" to="N3"/>
+      <Bond from="N3" to="C4"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <Bond from="O3'" to="HO3'"/>
+      <ExternalBond atomName="P"/>
+    </Residue>
+    <Residue name="DA5">
+      <Atom charge="0.4422" name="HO5'" type="DNA-HO"/>
+      <Atom charge="-0.6318" name="O5'" type="DNA-OH"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.0431" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1838" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0268" name="N9" type="DNA-N*"/>
+      <Atom charge="0.1607" name="C8" type="DNA-C1"/>
+      <Atom charge="0.1877" name="H8" type="DNA-H5"/>
+      <Atom charge="-0.6175" name="N7" type="DNA-NB"/>
+      <Atom charge="0.0725" name="C5" type="DNA-CB"/>
+      <Atom charge="0.6897" name="C6" type="DNA-CA"/>
+      <Atom charge="-0.9123" name="N6" type="DNA-N2"/>
+      <Atom charge="0.4167" name="H61" type="DNA-H"/>
+      <Atom charge="0.4167" name="H62" type="DNA-H"/>
+      <Atom charge="-0.7624" name="N1" type="DNA-NC"/>
+      <Atom charge="0.5716" name="C2" type="DNA-CQ"/>
+      <Atom charge="0.0598" name="H2" type="DNA-H5"/>
+      <Atom charge="-0.7417" name="N3" type="DNA-NC"/>
+      <Atom charge="0.38" name="C4" type="DNA-CB"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.5232" name="O3'" type="DNA-OS"/>
+      <Bond from="HO5'" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N9"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N9" to="C8"/>
+      <Bond from="N9" to="C4"/>
+      <Bond from="C8" to="H8"/>
+      <Bond from="C8" to="N7"/>
+      <Bond from="N7" to="C5"/>
+      <Bond from="C5" to="C6"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C6" to="N6"/>
+      <Bond from="C6" to="N1"/>
+      <Bond from="N6" to="H61"/>
+      <Bond from="N6" to="H62"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C2" to="H2"/>
+      <Bond from="C2" to="N3"/>
+      <Bond from="N3" to="C4"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <ExternalBond atomName="O3'"/>
+    </Residue>
+    <Residue name="DAN">
+      <Atom charge="0.4422" name="HO5'" type="DNA-HO"/>
+      <Atom charge="-0.6318" name="O5'" type="DNA-OH"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.0431" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1838" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0268" name="N9" type="DNA-N*"/>
+      <Atom charge="0.1607" name="C8" type="DNA-C1"/>
+      <Atom charge="0.1877" name="H8" type="DNA-H5"/>
+      <Atom charge="-0.6175" name="N7" type="DNA-NB"/>
+      <Atom charge="0.0725" name="C5" type="DNA-CB"/>
+      <Atom charge="0.6897" name="C6" type="DNA-CA"/>
+      <Atom charge="-0.9123" name="N6" type="DNA-N2"/>
+      <Atom charge="0.4167" name="H61" type="DNA-H"/>
+      <Atom charge="0.4167" name="H62" type="DNA-H"/>
+      <Atom charge="-0.7624" name="N1" type="DNA-NC"/>
+      <Atom charge="0.5716" name="C2" type="DNA-CQ"/>
+      <Atom charge="0.0598" name="H2" type="DNA-H5"/>
+      <Atom charge="-0.7417" name="N3" type="DNA-NC"/>
+      <Atom charge="0.38" name="C4" type="DNA-CB"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.6549" name="O3'" type="DNA-OH"/>
+      <Atom charge="0.4396" name="HO3'" type="DNA-HO"/>
+      <Bond from="HO5'" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N9"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N9" to="C8"/>
+      <Bond from="N9" to="C4"/>
+      <Bond from="C8" to="H8"/>
+      <Bond from="C8" to="N7"/>
+      <Bond from="N7" to="C5"/>
+      <Bond from="C5" to="C6"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C6" to="N6"/>
+      <Bond from="C6" to="N1"/>
+      <Bond from="N6" to="H61"/>
+      <Bond from="N6" to="H62"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C2" to="H2"/>
+      <Bond from="C2" to="N3"/>
+      <Bond from="N3" to="C4"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <Bond from="O3'" to="HO3'"/>
+    </Residue>
+    <Residue name="DC">
+      <Atom charge="1.1659" name="P" type="DNA-P"/>
+      <Atom charge="-0.7761" name="OP1" type="DNA-O2"/>
+      <Atom charge="-0.7761" name="OP2" type="DNA-O2"/>
+      <Atom charge="-0.4954" name="O5'" type="DNA-OS"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="-0.0116" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1963" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0339" name="N1" type="DNA-N*"/>
+      <Atom charge="-0.0183" name="C6" type="DNA-CM"/>
+      <Atom charge="0.2293" name="H6" type="DNA-H4"/>
+      <Atom charge="-0.5222" name="C5" type="DNA-CM"/>
+      <Atom charge="0.1863" name="H5" type="DNA-HA"/>
+      <Atom charge="0.8439" name="C4" type="DNA-CA"/>
+      <Atom charge="-0.9773" name="N4" type="DNA-N2"/>
+      <Atom charge="0.4314" name="H41" type="DNA-H"/>
+      <Atom charge="0.4314" name="H42" type="DNA-H"/>
+      <Atom charge="-0.7748" name="N3" type="DNA-NC"/>
+      <Atom charge="0.7959" name="C2" type="DNA-C"/>
+      <Atom charge="-0.6548" name="O2" type="DNA-O"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.5232" name="O3'" type="DNA-OS"/>
+      <Bond from="P" to="OP1"/>
+      <Bond from="P" to="OP2"/>
+      <Bond from="P" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N1"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N1" to="C6"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C6" to="H6"/>
+      <Bond from="C6" to="C5"/>
+      <Bond from="C5" to="H5"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C4" to="N4"/>
+      <Bond from="C4" to="N3"/>
+      <Bond from="N4" to="H41"/>
+      <Bond from="N4" to="H42"/>
+      <Bond from="N3" to="C2"/>
+      <Bond from="C2" to="O2"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <ExternalBond atomName="P"/>
+      <ExternalBond atomName="O3'"/>
+    </Residue>
+    <Residue name="DC3">
+      <Atom charge="1.1659" name="P" type="DNA-P"/>
+      <Atom charge="-0.7761" name="OP1" type="DNA-O2"/>
+      <Atom charge="-0.7761" name="OP2" type="DNA-O2"/>
+      <Atom charge="-0.4954" name="O5'" type="DNA-OS"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="-0.0116" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1963" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0339" name="N1" type="DNA-N*"/>
+      <Atom charge="-0.0183" name="C6" type="DNA-CM"/>
+      <Atom charge="0.2293" name="H6" type="DNA-H4"/>
+      <Atom charge="-0.5222" name="C5" type="DNA-CM"/>
+      <Atom charge="0.1863" name="H5" type="DNA-HA"/>
+      <Atom charge="0.8439" name="C4" type="DNA-CA"/>
+      <Atom charge="-0.9773" name="N4" type="DNA-N2"/>
+      <Atom charge="0.4314" name="H41" type="DNA-H"/>
+      <Atom charge="0.4314" name="H42" type="DNA-H"/>
+      <Atom charge="-0.7748" name="N3" type="DNA-NC"/>
+      <Atom charge="0.7959" name="C2" type="DNA-C"/>
+      <Atom charge="-0.6548" name="O2" type="DNA-O"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.6549" name="O3'" type="DNA-OH"/>
+      <Atom charge="0.4396" name="HO3'" type="DNA-HO"/>
+      <Bond from="P" to="OP1"/>
+      <Bond from="P" to="OP2"/>
+      <Bond from="P" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N1"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N1" to="C6"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C6" to="H6"/>
+      <Bond from="C6" to="C5"/>
+      <Bond from="C5" to="H5"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C4" to="N4"/>
+      <Bond from="C4" to="N3"/>
+      <Bond from="N4" to="H41"/>
+      <Bond from="N4" to="H42"/>
+      <Bond from="N3" to="C2"/>
+      <Bond from="C2" to="O2"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <Bond from="O3'" to="HO3'"/>
+      <ExternalBond atomName="P"/>
+    </Residue>
+    <Residue name="DC5">
+      <Atom charge="0.4422" name="HO5'" type="DNA-HO"/>
+      <Atom charge="-0.6318" name="O5'" type="DNA-OH"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="-0.0116" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1963" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0339" name="N1" type="DNA-N*"/>
+      <Atom charge="-0.0183" name="C6" type="DNA-CM"/>
+      <Atom charge="0.2293" name="H6" type="DNA-H4"/>
+      <Atom charge="-0.5222" name="C5" type="DNA-CM"/>
+      <Atom charge="0.1863" name="H5" type="DNA-HA"/>
+      <Atom charge="0.8439" name="C4" type="DNA-CA"/>
+      <Atom charge="-0.9773" name="N4" type="DNA-N2"/>
+      <Atom charge="0.4314" name="H41" type="DNA-H"/>
+      <Atom charge="0.4314" name="H42" type="DNA-H"/>
+      <Atom charge="-0.7748" name="N3" type="DNA-NC"/>
+      <Atom charge="0.7959" name="C2" type="DNA-C"/>
+      <Atom charge="-0.6548" name="O2" type="DNA-O"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.5232" name="O3'" type="DNA-OS"/>
+      <Bond from="HO5'" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N1"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N1" to="C6"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C6" to="H6"/>
+      <Bond from="C6" to="C5"/>
+      <Bond from="C5" to="H5"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C4" to="N4"/>
+      <Bond from="C4" to="N3"/>
+      <Bond from="N4" to="H41"/>
+      <Bond from="N4" to="H42"/>
+      <Bond from="N3" to="C2"/>
+      <Bond from="C2" to="O2"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <ExternalBond atomName="O3'"/>
+    </Residue>
+    <Residue name="DCN">
+      <Atom charge="0.4422" name="HO5'" type="DNA-HO"/>
+      <Atom charge="-0.6318" name="O5'" type="DNA-OH"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="-0.0116" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1963" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0339" name="N1" type="DNA-N*"/>
+      <Atom charge="-0.0183" name="C6" type="DNA-CM"/>
+      <Atom charge="0.2293" name="H6" type="DNA-H4"/>
+      <Atom charge="-0.5222" name="C5" type="DNA-CM"/>
+      <Atom charge="0.1863" name="H5" type="DNA-HA"/>
+      <Atom charge="0.8439" name="C4" type="DNA-CA"/>
+      <Atom charge="-0.9773" name="N4" type="DNA-N2"/>
+      <Atom charge="0.4314" name="H41" type="DNA-H"/>
+      <Atom charge="0.4314" name="H42" type="DNA-H"/>
+      <Atom charge="-0.7748" name="N3" type="DNA-NC"/>
+      <Atom charge="0.7959" name="C2" type="DNA-C"/>
+      <Atom charge="-0.6548" name="O2" type="DNA-O"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.6549" name="O3'" type="DNA-OH"/>
+      <Atom charge="0.4396" name="HO3'" type="DNA-HO"/>
+      <Bond from="HO5'" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N1"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N1" to="C6"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C6" to="H6"/>
+      <Bond from="C6" to="C5"/>
+      <Bond from="C5" to="H5"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C4" to="N4"/>
+      <Bond from="C4" to="N3"/>
+      <Bond from="N4" to="H41"/>
+      <Bond from="N4" to="H42"/>
+      <Bond from="N3" to="C2"/>
+      <Bond from="C2" to="O2"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <Bond from="O3'" to="HO3'"/>
+    </Residue>
+    <Residue name="DG">
+      <Atom charge="1.1659" name="P" type="DNA-P"/>
+      <Atom charge="-0.7761" name="OP1" type="DNA-O2"/>
+      <Atom charge="-0.7761" name="OP2" type="DNA-O2"/>
+      <Atom charge="-0.4954" name="O5'" type="DNA-OS"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.0358" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1746" name="H1'" type="DNA-H2"/>
+      <Atom charge="0.0577" name="N9" type="DNA-N*"/>
+      <Atom charge="0.0736" name="C8" type="DNA-CK"/>
+      <Atom charge="0.1997" name="H8" type="DNA-H5"/>
+      <Atom charge="-0.5725" name="N7" type="DNA-NB"/>
+      <Atom charge="0.1991" name="C5" type="DNA-CB"/>
+      <Atom charge="0.4918" name="C6" type="DNA-C"/>
+      <Atom charge="-0.5699" name="O6" type="DNA-O"/>
+      <Atom charge="-0.5053" name="N1" type="DNA-NA"/>
+      <Atom charge="0.352" name="H1" type="DNA-H"/>
+      <Atom charge="0.7432" name="C2" type="DNA-CA"/>
+      <Atom charge="-0.923" name="N2" type="DNA-N2"/>
+      <Atom charge="0.4235" name="H21" type="DNA-H"/>
+      <Atom charge="0.4235" name="H22" type="DNA-H"/>
+      <Atom charge="-0.6636" name="N3" type="DNA-NC"/>
+      <Atom charge="0.1814" name="C4" type="DNA-CB"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.5232" name="O3'" type="DNA-OS"/>
+      <Bond from="P" to="OP1"/>
+      <Bond from="P" to="OP2"/>
+      <Bond from="P" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N9"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N9" to="C8"/>
+      <Bond from="N9" to="C4"/>
+      <Bond from="C8" to="H8"/>
+      <Bond from="C8" to="N7"/>
+      <Bond from="N7" to="C5"/>
+      <Bond from="C5" to="C6"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C6" to="O6"/>
+      <Bond from="C6" to="N1"/>
+      <Bond from="N1" to="H1"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C2" to="N2"/>
+      <Bond from="C2" to="N3"/>
+      <Bond from="N2" to="H21"/>
+      <Bond from="N2" to="H22"/>
+      <Bond from="N3" to="C4"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <ExternalBond atomName="P"/>
+      <ExternalBond atomName="O3'"/>
+    </Residue>
+    <Residue name="DG3">
+      <Atom charge="1.1659" name="P" type="DNA-P"/>
+      <Atom charge="-0.7761" name="OP1" type="DNA-O2"/>
+      <Atom charge="-0.7761" name="OP2" type="DNA-O2"/>
+      <Atom charge="-0.4954" name="O5'" type="DNA-OS"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.0358" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1746" name="H1'" type="DNA-H2"/>
+      <Atom charge="0.0577" name="N9" type="DNA-N*"/>
+      <Atom charge="0.0736" name="C8" type="DNA-CK"/>
+      <Atom charge="0.1997" name="H8" type="DNA-H5"/>
+      <Atom charge="-0.5725" name="N7" type="DNA-NB"/>
+      <Atom charge="0.1991" name="C5" type="DNA-CB"/>
+      <Atom charge="0.4918" name="C6" type="DNA-C"/>
+      <Atom charge="-0.5699" name="O6" type="DNA-O"/>
+      <Atom charge="-0.5053" name="N1" type="DNA-NA"/>
+      <Atom charge="0.352" name="H1" type="DNA-H"/>
+      <Atom charge="0.7432" name="C2" type="DNA-CA"/>
+      <Atom charge="-0.923" name="N2" type="DNA-N2"/>
+      <Atom charge="0.4235" name="H21" type="DNA-H"/>
+      <Atom charge="0.4235" name="H22" type="DNA-H"/>
+      <Atom charge="-0.6636" name="N3" type="DNA-NC"/>
+      <Atom charge="0.1814" name="C4" type="DNA-CB"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.6549" name="O3'" type="DNA-OH"/>
+      <Atom charge="0.4396" name="HO3'" type="DNA-HO"/>
+      <Bond from="P" to="OP1"/>
+      <Bond from="P" to="OP2"/>
+      <Bond from="P" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N9"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N9" to="C8"/>
+      <Bond from="N9" to="C4"/>
+      <Bond from="C8" to="H8"/>
+      <Bond from="C8" to="N7"/>
+      <Bond from="N7" to="C5"/>
+      <Bond from="C5" to="C6"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C6" to="O6"/>
+      <Bond from="C6" to="N1"/>
+      <Bond from="N1" to="H1"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C2" to="N2"/>
+      <Bond from="C2" to="N3"/>
+      <Bond from="N2" to="H21"/>
+      <Bond from="N2" to="H22"/>
+      <Bond from="N3" to="C4"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <Bond from="O3'" to="HO3'"/>
+      <ExternalBond atomName="P"/>
+    </Residue>
+    <Residue name="DG5">
+      <Atom charge="0.4422" name="HO5'" type="DNA-HO"/>
+      <Atom charge="-0.6318" name="O5'" type="DNA-OH"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.0358" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1746" name="H1'" type="DNA-H2"/>
+      <Atom charge="0.0577" name="N9" type="DNA-N*"/>
+      <Atom charge="0.0736" name="C8" type="DNA-CK"/>
+      <Atom charge="0.1997" name="H8" type="DNA-H5"/>
+      <Atom charge="-0.5725" name="N7" type="DNA-NB"/>
+      <Atom charge="0.1991" name="C5" type="DNA-CB"/>
+      <Atom charge="0.4918" name="C6" type="DNA-C"/>
+      <Atom charge="-0.5699" name="O6" type="DNA-O"/>
+      <Atom charge="-0.5053" name="N1" type="DNA-NA"/>
+      <Atom charge="0.352" name="H1" type="DNA-H"/>
+      <Atom charge="0.7432" name="C2" type="DNA-CA"/>
+      <Atom charge="-0.923" name="N2" type="DNA-N2"/>
+      <Atom charge="0.4235" name="H21" type="DNA-H"/>
+      <Atom charge="0.4235" name="H22" type="DNA-H"/>
+      <Atom charge="-0.6636" name="N3" type="DNA-NC"/>
+      <Atom charge="0.1814" name="C4" type="DNA-CB"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.5232" name="O3'" type="DNA-OS"/>
+      <Bond from="HO5'" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N9"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N9" to="C8"/>
+      <Bond from="N9" to="C4"/>
+      <Bond from="C8" to="H8"/>
+      <Bond from="C8" to="N7"/>
+      <Bond from="N7" to="C5"/>
+      <Bond from="C5" to="C6"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C6" to="O6"/>
+      <Bond from="C6" to="N1"/>
+      <Bond from="N1" to="H1"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C2" to="N2"/>
+      <Bond from="C2" to="N3"/>
+      <Bond from="N2" to="H21"/>
+      <Bond from="N2" to="H22"/>
+      <Bond from="N3" to="C4"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <ExternalBond atomName="O3'"/>
+    </Residue>
+    <Residue name="DGN">
+      <Atom charge="0.4422" name="HO5'" type="DNA-HO"/>
+      <Atom charge="-0.6318" name="O5'" type="DNA-OH"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.0358" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1746" name="H1'" type="DNA-H2"/>
+      <Atom charge="0.0577" name="N9" type="DNA-N*"/>
+      <Atom charge="0.0736" name="C8" type="DNA-CK"/>
+      <Atom charge="0.1997" name="H8" type="DNA-H5"/>
+      <Atom charge="-0.5725" name="N7" type="DNA-NB"/>
+      <Atom charge="0.1991" name="C5" type="DNA-CB"/>
+      <Atom charge="0.4918" name="C6" type="DNA-C"/>
+      <Atom charge="-0.5699" name="O6" type="DNA-O"/>
+      <Atom charge="-0.5053" name="N1" type="DNA-NA"/>
+      <Atom charge="0.352" name="H1" type="DNA-H"/>
+      <Atom charge="0.7432" name="C2" type="DNA-CA"/>
+      <Atom charge="-0.923" name="N2" type="DNA-N2"/>
+      <Atom charge="0.4235" name="H21" type="DNA-H"/>
+      <Atom charge="0.4235" name="H22" type="DNA-H"/>
+      <Atom charge="-0.6636" name="N3" type="DNA-NC"/>
+      <Atom charge="0.1814" name="C4" type="DNA-CB"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.6549" name="O3'" type="DNA-OH"/>
+      <Atom charge="0.4396" name="HO3'" type="DNA-HO"/>
+      <Bond from="HO5'" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N9"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N9" to="C8"/>
+      <Bond from="N9" to="C4"/>
+      <Bond from="C8" to="H8"/>
+      <Bond from="C8" to="N7"/>
+      <Bond from="N7" to="C5"/>
+      <Bond from="C5" to="C6"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C6" to="O6"/>
+      <Bond from="C6" to="N1"/>
+      <Bond from="N1" to="H1"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C2" to="N2"/>
+      <Bond from="C2" to="N3"/>
+      <Bond from="N2" to="H21"/>
+      <Bond from="N2" to="H22"/>
+      <Bond from="N3" to="C4"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <Bond from="O3'" to="HO3'"/>
+    </Residue>
+    <Residue name="DT">
+      <Atom charge="1.1659" name="P" type="DNA-P"/>
+      <Atom charge="-0.7761" name="OP1" type="DNA-O2"/>
+      <Atom charge="-0.7761" name="OP2" type="DNA-O2"/>
+      <Atom charge="-0.4954" name="O5'" type="DNA-OS"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.068" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1804" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0239" name="N1" type="DNA-N*"/>
+      <Atom charge="-0.2209" name="C6" type="DNA-C2"/>
+      <Atom charge="0.2607" name="H6" type="DNA-H4"/>
+      <Atom charge="0.0025" name="C5" type="DNA-C2"/>
+      <Atom charge="-0.2269" name="C7" type="DNA-CT"/>
+      <Atom charge="0.077" name="H71" type="DNA-HC"/>
+      <Atom charge="0.077" name="H72" type="DNA-HC"/>
+      <Atom charge="0.077" name="H73" type="DNA-HC"/>
+      <Atom charge="0.5194" name="C4" type="DNA-C"/>
+      <Atom charge="-0.5563" name="O4" type="DNA-O"/>
+      <Atom charge="-0.434" name="N3" type="DNA-NA"/>
+      <Atom charge="0.342" name="H3" type="DNA-H"/>
+      <Atom charge="0.5677" name="C2" type="DNA-C"/>
+      <Atom charge="-0.5881" name="O2" type="DNA-O"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.5232" name="O3'" type="DNA-OS"/>
+      <Bond from="P" to="OP1"/>
+      <Bond from="P" to="OP2"/>
+      <Bond from="P" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N1"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N1" to="C6"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C6" to="H6"/>
+      <Bond from="C6" to="C5"/>
+      <Bond from="C5" to="C7"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C7" to="H71"/>
+      <Bond from="C7" to="H72"/>
+      <Bond from="C7" to="H73"/>
+      <Bond from="C4" to="O4"/>
+      <Bond from="C4" to="N3"/>
+      <Bond from="N3" to="H3"/>
+      <Bond from="N3" to="C2"/>
+      <Bond from="C2" to="O2"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <ExternalBond atomName="P"/>
+      <ExternalBond atomName="O3'"/>
+    </Residue>
+    <Residue name="DT3">
+      <Atom charge="1.1659" name="P" type="DNA-P"/>
+      <Atom charge="-0.7761" name="OP1" type="DNA-O2"/>
+      <Atom charge="-0.7761" name="OP2" type="DNA-O2"/>
+      <Atom charge="-0.4954" name="O5'" type="DNA-OS"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.068" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1804" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0239" name="N1" type="DNA-N*"/>
+      <Atom charge="-0.2209" name="C6" type="DNA-C2"/>
+      <Atom charge="0.2607" name="H6" type="DNA-H4"/>
+      <Atom charge="0.0025" name="C5" type="DNA-C2"/>
+      <Atom charge="-0.2269" name="C7" type="DNA-CT"/>
+      <Atom charge="0.077" name="H71" type="DNA-HC"/>
+      <Atom charge="0.077" name="H72" type="DNA-HC"/>
+      <Atom charge="0.077" name="H73" type="DNA-HC"/>
+      <Atom charge="0.5194" name="C4" type="DNA-C"/>
+      <Atom charge="-0.5563" name="O4" type="DNA-O"/>
+      <Atom charge="-0.434" name="N3" type="DNA-NA"/>
+      <Atom charge="0.342" name="H3" type="DNA-H"/>
+      <Atom charge="0.5677" name="C2" type="DNA-C"/>
+      <Atom charge="-0.5881" name="O2" type="DNA-O"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.6549" name="O3'" type="DNA-OH"/>
+      <Atom charge="0.4396" name="HO3'" type="DNA-HO"/>
+      <Bond from="P" to="OP1"/>
+      <Bond from="P" to="OP2"/>
+      <Bond from="P" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N1"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N1" to="C6"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C6" to="H6"/>
+      <Bond from="C6" to="C5"/>
+      <Bond from="C5" to="C7"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C7" to="H71"/>
+      <Bond from="C7" to="H72"/>
+      <Bond from="C7" to="H73"/>
+      <Bond from="C4" to="O4"/>
+      <Bond from="C4" to="N3"/>
+      <Bond from="N3" to="H3"/>
+      <Bond from="N3" to="C2"/>
+      <Bond from="C2" to="O2"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <Bond from="O3'" to="HO3'"/>
+      <ExternalBond atomName="P"/>
+    </Residue>
+    <Residue name="DT5">
+      <Atom charge="0.4422" name="HO5'" type="DNA-HO"/>
+      <Atom charge="-0.6318" name="O5'" type="DNA-OH"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.068" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1804" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0239" name="N1" type="DNA-N*"/>
+      <Atom charge="-0.2209" name="C6" type="DNA-C2"/>
+      <Atom charge="0.2607" name="H6" type="DNA-H4"/>
+      <Atom charge="0.0025" name="C5" type="DNA-C2"/>
+      <Atom charge="-0.2269" name="C7" type="DNA-CT"/>
+      <Atom charge="0.077" name="H71" type="DNA-HC"/>
+      <Atom charge="0.077" name="H72" type="DNA-HC"/>
+      <Atom charge="0.077" name="H73" type="DNA-HC"/>
+      <Atom charge="0.5194" name="C4" type="DNA-C"/>
+      <Atom charge="-0.5563" name="O4" type="DNA-O"/>
+      <Atom charge="-0.434" name="N3" type="DNA-NA"/>
+      <Atom charge="0.342" name="H3" type="DNA-H"/>
+      <Atom charge="0.5677" name="C2" type="DNA-C"/>
+      <Atom charge="-0.5881" name="O2" type="DNA-O"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.5232" name="O3'" type="DNA-OS"/>
+      <Bond from="HO5'" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N1"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N1" to="C6"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C6" to="H6"/>
+      <Bond from="C6" to="C5"/>
+      <Bond from="C5" to="C7"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C7" to="H71"/>
+      <Bond from="C7" to="H72"/>
+      <Bond from="C7" to="H73"/>
+      <Bond from="C4" to="O4"/>
+      <Bond from="C4" to="N3"/>
+      <Bond from="N3" to="H3"/>
+      <Bond from="N3" to="C2"/>
+      <Bond from="C2" to="O2"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <ExternalBond atomName="O3'"/>
+    </Residue>
+    <Residue name="DTN">
+      <Atom charge="0.4422" name="HO5'" type="DNA-HO"/>
+      <Atom charge="-0.6318" name="O5'" type="DNA-OH"/>
+      <Atom charge="-0.0069" name="C5'" type="DNA-CI"/>
+      <Atom charge="0.0754" name="H5'" type="DNA-H1"/>
+      <Atom charge="0.0754" name="H5''" type="DNA-H1"/>
+      <Atom charge="0.1629" name="C4'" type="DNA-CT"/>
+      <Atom charge="0.1176" name="H4'" type="DNA-H1"/>
+      <Atom charge="-0.3691" name="O4'" type="DNA-OS"/>
+      <Atom charge="0.068" name="C1'" type="DNA-CT"/>
+      <Atom charge="0.1804" name="H1'" type="DNA-H2"/>
+      <Atom charge="-0.0239" name="N1" type="DNA-N*"/>
+      <Atom charge="-0.2209" name="C6" type="DNA-C2"/>
+      <Atom charge="0.2607" name="H6" type="DNA-H4"/>
+      <Atom charge="0.0025" name="C5" type="DNA-C2"/>
+      <Atom charge="-0.2269" name="C7" type="DNA-CT"/>
+      <Atom charge="0.077" name="H71" type="DNA-HC"/>
+      <Atom charge="0.077" name="H72" type="DNA-HC"/>
+      <Atom charge="0.077" name="H73" type="DNA-HC"/>
+      <Atom charge="0.5194" name="C4" type="DNA-C"/>
+      <Atom charge="-0.5563" name="O4" type="DNA-O"/>
+      <Atom charge="-0.434" name="N3" type="DNA-NA"/>
+      <Atom charge="0.342" name="H3" type="DNA-H"/>
+      <Atom charge="0.5677" name="C2" type="DNA-C"/>
+      <Atom charge="-0.5881" name="O2" type="DNA-O"/>
+      <Atom charge="0.0713" name="C3'" type="DNA-CE"/>
+      <Atom charge="0.0985" name="H3'" type="DNA-H1"/>
+      <Atom charge="-0.0854" name="C2'" type="DNA-CT"/>
+      <Atom charge="0.0718" name="H2'" type="DNA-HC"/>
+      <Atom charge="0.0718" name="H2''" type="DNA-HC"/>
+      <Atom charge="-0.6549" name="O3'" type="DNA-OH"/>
+      <Atom charge="0.4396" name="HO3'" type="DNA-HO"/>
+      <Bond from="HO5'" to="O5'"/>
+      <Bond from="O5'" to="C5'"/>
+      <Bond from="C5'" to="H5'"/>
+      <Bond from="C5'" to="H5''"/>
+      <Bond from="C5'" to="C4'"/>
+      <Bond from="C4'" to="H4'"/>
+      <Bond from="C4'" to="O4'"/>
+      <Bond from="C4'" to="C3'"/>
+      <Bond from="O4'" to="C1'"/>
+      <Bond from="C1'" to="H1'"/>
+      <Bond from="C1'" to="N1"/>
+      <Bond from="C1'" to="C2'"/>
+      <Bond from="N1" to="C6"/>
+      <Bond from="N1" to="C2"/>
+      <Bond from="C6" to="H6"/>
+      <Bond from="C6" to="C5"/>
+      <Bond from="C5" to="C7"/>
+      <Bond from="C5" to="C4"/>
+      <Bond from="C7" to="H71"/>
+      <Bond from="C7" to="H72"/>
+      <Bond from="C7" to="H73"/>
+      <Bond from="C4" to="O4"/>
+      <Bond from="C4" to="N3"/>
+      <Bond from="N3" to="H3"/>
+      <Bond from="N3" to="C2"/>
+      <Bond from="C2" to="O2"/>
+      <Bond from="C3'" to="H3'"/>
+      <Bond from="C3'" to="C2'"/>
+      <Bond from="C3'" to="O3'"/>
+      <Bond from="C2'" to="H2'"/>
+      <Bond from="C2'" to="H2''"/>
+      <Bond from="O3'" to="HO3'"/>
+    </Residue>
+    </Residues>
