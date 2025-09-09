@@ -265,6 +265,7 @@ class G4(BaseDynamics):
             for chain in top.chains():
                 newChain = newTopology.addChain()
                 for res in chain.residues():
+                    '''
                     if res.name.endswith('A') and res.index == start_idx:
                         resname = 'DA5'
                     elif res.name.endswith('G') and res.index == start_idx:
@@ -283,6 +284,11 @@ class G4(BaseDynamics):
                         resname = 'DC3'
                     elif res.name.startswith('TIP'):
                         resname = 'HOH'
+                    '''
+                    if res.name.endswith('A') and res.index == 0:
+                        resname = 'DA5'
+                    elif res.name.endswith('G') and res.index == 21:
+                        resname = 'DG3'
                     else:
                         resname = res.name
                     newRes = newTopology.addResidue(resname, newChain)

@@ -66,6 +66,14 @@ class MDs:
         positions = torch.tensor(positions, dtype=torch.float, device=self.device)
         forces = torch.tensor(forces, dtype=torch.float, device=self.device)
         return positions, forces
+    
+    def report_vel(self):
+        velocities = []
+        for i in range(self.num_samples):
+            velocity = self.mds[i].report_vel()
+            velocities.append(velocity)
+        velocities = torch.tensor(velocities, dtype=torch.float, device=self.device)
+        return velocities
 
     def reset(self):
         for i in range(self.num_samples):
@@ -74,3 +82,9 @@ class MDs:
     def set_temperature(self, temperature):
         for i in range(self.num_samples):
             self.mds[i].set_temperature(temperature)
+
+    def get_g4_arg(self):
+        if self.molecule != "g4":
+            return None
+        g4 = self.mds[0]
+        ion_idx = [atom.index for atom in g4.pdb.topology.atoms() if len(atom.residue) == 1]

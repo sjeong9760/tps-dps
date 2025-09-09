@@ -54,6 +54,11 @@ class BaseDynamics(ABC):
         )
         return positions, forces
 
+    def report_vel(self):
+        state = self.simulation.context.getState(getVelocities=True)
+        velocities = state.getVelocities().value_in_unit(unit.nanometer / unit.femtosecond)
+        return velocities
+
     def reset(self):
         for i in range(len(self.position)):
             self.external_force.setParticleParameters(i, i, [0, 0, 0])

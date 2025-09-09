@@ -1,0 +1,11 @@
+python src/sample.py \
+    --molecule g4 \
+    --start_state 143d_Na \
+    --end_state 1kf1_Na \
+    --num_steps 5000 \
+    --sigma 0.5 \
+    --bias scale \
+    --num_samples 8 \
+    --temperature 350 \
+    --sim_type 250908_g4Na_hbond0.3_whbond0.5_350K \
+    --model_path results/250810_g4Na_scale_hbond0.3_whbond0.5_350K/policies/policy.pt

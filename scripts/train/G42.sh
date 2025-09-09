@@ -6,9 +6,10 @@ python src/train.py \
     --sigma 0.5 \
     --num_rollouts 100 \
     --num_samples 4\
-    --batch_size 2 \
-    --bias scale \
+    --batch_size 4 \
+    --bias force \
     --buffer_size 200 \
-    --end_temperature 400 \
-    --temperature 400 \
-    --date 250709_g4K_400K
+    --end_temperature 350 \
+    --temperature 350 \
+    --w_hbond 0.0 \
+    --date 250810_g4K_force_350K

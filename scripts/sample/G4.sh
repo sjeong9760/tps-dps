@@ -1,0 +1,11 @@
+python src/sample.py \
+    --molecule g4 \
+    --start_state 1kf1_K \
+    --end_state 143d_K \
+    --num_steps 20000 \
+    --sigma 0.5 \
+    --bias scale \
+    --num_samples 8 \
+    --temperature 350 \
+    --sim_type 250810_g4K_350K_20ps_3 \
+    --model_path results/250810_g4K_scale_350K/policies/policy.pt
